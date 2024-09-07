@@ -84,6 +84,22 @@ class _QNumberFieldState extends State<QNumberField> {
                 ),
           helperText: widget.helper,
           hintText: widget.hint,
+          fillColor: Colors.white,
+          enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: primaryColor),
+              borderRadius: BorderRadius.all(
+                Radius.circular(8),
+              )),
+          focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: primaryColor),
+              borderRadius: BorderRadius.all(
+                Radius.circular(8),
+              )),
+          errorBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: dangerColor),
+              borderRadius: BorderRadius.all(
+                Radius.circular(8),
+              )),
         ),
         onChanged: (newValue) {
           final newValue = controller.text;

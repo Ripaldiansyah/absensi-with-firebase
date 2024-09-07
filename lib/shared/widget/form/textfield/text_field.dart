@@ -1,5 +1,6 @@
 //#TEMPLATE reuseable_text_field
 import 'package:flutter/material.dart';
+import 'package:hyper_ui/core.dart';
 
 class QTextField extends StatefulWidget {
   const QTextField({
@@ -73,7 +74,7 @@ class _QTextFieldState extends State<QTextField> {
   @override
   Widget build(BuildContext context) {
     Widget icon = Icon(
-      widget.suffixIcon ?? Icons.abc,
+      widget.suffixIcon ?? null,
     );
 
     if (widget.obscure) {
@@ -83,7 +84,10 @@ class _QTextFieldState extends State<QTextField> {
             visible = false;
             setState(() {});
           },
-          child: icon = const Icon(Icons.password),
+          child: icon = const Icon(
+            Icons.visibility_off_outlined,
+            color: Colors.black,
+          ),
         );
       } else {
         icon = InkWell(
@@ -91,14 +95,17 @@ class _QTextFieldState extends State<QTextField> {
             visible = true;
             setState(() {});
           },
-          child: icon = const Icon(Icons.visibility),
+          child: icon = const Icon(
+            Icons.visibility_outlined,
+            color: Colors.black,
+          ),
         );
       }
     }
 
     return Container(
       margin: const EdgeInsets.only(
-        bottom: 12,
+        bottom: 20,
       ),
       child: TextFormField(
         enabled: widget.enabled,
@@ -112,6 +119,22 @@ class _QTextFieldState extends State<QTextField> {
           suffixIcon: icon,
           helperText: widget.helper,
           hintText: widget.hint,
+          fillColor: Colors.white,
+          enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: primaryColor),
+              borderRadius: BorderRadius.all(
+                Radius.circular(8),
+              )),
+          focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: primaryColor),
+              borderRadius: BorderRadius.all(
+                Radius.circular(8),
+              )),
+          errorBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: dangerColor),
+              borderRadius: BorderRadius.all(
+                Radius.circular(8),
+              )),
         ),
         onChanged: (value) {
           widget.onChanged(value);

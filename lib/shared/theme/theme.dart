@@ -9,7 +9,7 @@ ThemeData getDefaultTheme() {
     colorScheme: ColorScheme.fromSeed(seedColor: primaryColor),
     appBarTheme: AppBarTheme(
       elevation: 0.6,
-      titleTextStyle: GoogleFonts.nunito(
+      titleTextStyle: GoogleFonts.lexend(
         color: Colors.white,
       ),
       backgroundColor: primaryColor,

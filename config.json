@@ -1,12 +1,18 @@
 {
     "modules": [
-        "web/web_asset"
+        "auth/login",
+        "employee/employee_main_navigation",
+        "employee/employee_dashboard",
+        "admin/admin_main_navigation",
+        "admin/admin_dashboard",
+        "profile/profile_setting",
+        "profile/profile_edit"
     ],
     "module_directory_name": "module",
     "experimental_mode": false,
     "learning_mode": false,
     "unfreezed": true,
-    "use_cubit": false,
+    "use_cubit": true,
     "ignore_core_generator_for_directories": [
         "lib/model",
         "lib/models"

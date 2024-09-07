@@ -16,8 +16,10 @@ class QButton extends StatefulWidget {
     this.size = ThemeSize.md,
     this.fontSize,
     this.enabled = true,
+    this.textColor,
   });
   final String label;
+  final Color? textColor;
   final Function onPressed;
   final double? width;
   final double? height;
@@ -86,7 +88,9 @@ class _QButtonState extends State<QButton> {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: widget.fontSize ?? widgetFontSize,
-                    color: Colors.white,
+                    color: widget.textColor != null
+                        ? widget.textColor
+                        : Colors.white,
                   ),
                 ),
               ),
