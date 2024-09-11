@@ -16,8 +16,6 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$EmployeeFormRequestLeaveState {
-  int get counter => throw _privateConstructorUsedError;
-  set counter(int value) => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
   set title(String? value) => throw _privateConstructorUsedError;
   DateTime? get startLeave => throw _privateConstructorUsedError;
@@ -43,8 +41,7 @@ abstract class $EmployeeFormRequestLeaveStateCopyWith<$Res> {
           EmployeeFormRequestLeaveState>;
   @useResult
   $Res call(
-      {int counter,
-      String? title,
+      {String? title,
       DateTime? startLeave,
       DateTime? endLeave,
       String? description});
@@ -66,17 +63,12 @@ class _$EmployeeFormRequestLeaveStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? counter = null,
     Object? title = freezed,
     Object? startLeave = freezed,
     Object? endLeave = freezed,
     Object? description = freezed,
   }) {
     return _then(_value.copyWith(
-      counter: null == counter
-          ? _value.counter
-          : counter // ignore: cast_nullable_to_non_nullable
-              as int,
       title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -107,8 +99,7 @@ abstract class _$$EmployeeFormRequestLeaveStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int counter,
-      String? title,
+      {String? title,
       DateTime? startLeave,
       DateTime? endLeave,
       String? description});
@@ -129,17 +120,12 @@ class __$$EmployeeFormRequestLeaveStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? counter = null,
     Object? title = freezed,
     Object? startLeave = freezed,
     Object? endLeave = freezed,
     Object? description = freezed,
   }) {
     return _then(_$EmployeeFormRequestLeaveStateImpl(
-      counter: null == counter
-          ? _value.counter
-          : counter // ignore: cast_nullable_to_non_nullable
-              as int,
       title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -165,15 +151,11 @@ class __$$EmployeeFormRequestLeaveStateImplCopyWithImpl<$Res>
 class _$EmployeeFormRequestLeaveStateImpl
     implements _EmployeeFormRequestLeaveState {
   _$EmployeeFormRequestLeaveStateImpl(
-      {this.counter = 0,
-      this.title = null,
+      {this.title = null,
       this.startLeave = null,
       this.endLeave = null,
       this.description = null});
 
-  @override
-  @JsonKey()
-  int counter;
   @override
   @JsonKey()
   String? title;
@@ -189,7 +171,7 @@ class _$EmployeeFormRequestLeaveStateImpl
 
   @override
   String toString() {
-    return 'EmployeeFormRequestLeaveState(counter: $counter, title: $title, startLeave: $startLeave, endLeave: $endLeave, description: $description)';
+    return 'EmployeeFormRequestLeaveState(title: $title, startLeave: $startLeave, endLeave: $endLeave, description: $description)';
   }
 
   /// Create a copy of EmployeeFormRequestLeaveState
@@ -206,15 +188,11 @@ class _$EmployeeFormRequestLeaveStateImpl
 abstract class _EmployeeFormRequestLeaveState
     implements EmployeeFormRequestLeaveState {
   factory _EmployeeFormRequestLeaveState(
-      {int counter,
-      String? title,
+      {String? title,
       DateTime? startLeave,
       DateTime? endLeave,
       String? description}) = _$EmployeeFormRequestLeaveStateImpl;
 
-  @override
-  int get counter;
-  set counter(int value);
   @override
   String? get title;
   set title(String? value);

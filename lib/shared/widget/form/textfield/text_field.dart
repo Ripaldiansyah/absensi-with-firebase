@@ -120,7 +120,7 @@ class _QTextFieldState extends State<QTextField> {
         focusNode: focusNode,
         validator: widget.validator,
         maxLength: widget.maxLength,
-        maxLines: widget.maxLines,
+        maxLines: widget.maxLines == null ? 1 : widget.maxLines,
         obscureText: visible == false && widget.obscure,
         decoration: InputDecoration(
           contentPadding: !isPaddingNull

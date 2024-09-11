@@ -100,6 +100,7 @@ class _LoginViewState extends State<LoginView> {
                 ),
                 QTextField(
                   label: "Password",
+                  maxLines: null,
                   obscure: true,
                   hint: "Masukan password",
                   validator: Validator.required,

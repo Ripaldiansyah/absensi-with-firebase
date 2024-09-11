@@ -11,6 +11,8 @@
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
+import 'module/admin/admin_leaves_approval/controller/admin_leaves_approval_controller.dart'
+    as _i766;
 import 'module/admin/admin_menu/controller/admin_menu_controller.dart' as _i549;
 import 'module/auth/login/controller/login_controller.dart' as _i994;
 import 'module/dashboard/controller/dashboard_controller.dart' as _i157;
@@ -57,6 +59,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i471.EmployeeRequestLeaveDetailController());
     gh.singleton<_i134.EmployeeFormRequestLeaveController>(
         () => _i134.EmployeeFormRequestLeaveController());
+    gh.singleton<_i766.AdminLeavesApprovalController>(
+        () => _i766.AdminLeavesApprovalController());
     return this;
   }
 }

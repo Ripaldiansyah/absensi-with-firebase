@@ -6,6 +6,7 @@
         "employee/employee_request_leave_detail",
         "employee/employee_form_request_leave",
         "admin/admin_menu",
+        "admin/admin_leaves_approval",
         "profile/profile_setting",
         "profile/profile_edit"
     ],

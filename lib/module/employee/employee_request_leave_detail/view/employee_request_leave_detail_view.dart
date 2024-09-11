@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import '../../../../core.dart';
 import '../controller/employee_request_leave_detail_controller.dart';
 import '../state/employee_request_leave_detail_state.dart';
 import 'package:get_it/get_it.dart';
@@ -64,14 +65,41 @@ class _EmployeeRequestLeaveDetailViewState
     EmployeeRequestLeaveDetailController controller,
     EmployeeRequestLeaveDetailState state,
   ) {
-    bool isDescriptionEmpty = widget.leave["description"] == "";
+    bool isDescriptionEmpty = widget.leave["description"] == "" ||
+        widget.leave["description"] == null;
     String startLeave = DateFormat('EEEE, dd MMMM yyyy')
         .format(widget.leave["startLeave"].toDate());
     String endLeave = DateFormat('EEEE, dd MMMM yyyy')
         .format(widget.leave["endLeave"].toDate());
+    String decisionDate = widget.leave["response"]["responseDate"] != null
+        ? DateFormat('EEEE, dd MMMM yyyy')
+            .format(widget.leave["response"]["responseDate"].toDate())
+        : "-";
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Employee Request Leave Detail'),
+        actions: widget.leave["response"]["status"] == "pending"
+            ? [
+                IconButton(
+                  onPressed: () => controller.deleteLeave(widget.leave),
+                  icon: const Icon(
+                    Icons.delete,
+                    color: Colors.red,
+                    size: 24.0,
+                  ),
+                ),
+                IconButton(
+                  onPressed: () => Get.to(EmployeeFormRequestLeaveView(
+                    leave: widget.leave,
+                  )),
+                  icon: const Icon(
+                    Icons.edit,
+                    size: 24.0,
+                  ),
+                ),
+              ]
+            : [],
       ),
       body: Padding(
         padding: EdgeInsets.all(8.0),
@@ -117,22 +145,18 @@ class _EmployeeRequestLeaveDetailViewState
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  "Deskripsi",
-                  style: TextStyle(fontSize: 15.0),
-                ),
-                const SizedBox(
-                  width: 200.0,
-                ),
                 Expanded(
                   child: Text(
-                    "${isDescriptionEmpty ? "-" : widget.leave["description"]}",
-                    overflow: TextOverflow.fade,
-                    textAlign: isDescriptionEmpty
-                        ? TextAlign.right
-                        : TextAlign.justify,
+                    "Deskripsi",
                     style: TextStyle(fontSize: 15.0),
                   ),
+                ),
+                Text(
+                  "${isDescriptionEmpty ? "-" : widget.leave["description"]}",
+                  overflow: TextOverflow.fade,
+                  textAlign:
+                      isDescriptionEmpty ? TextAlign.right : TextAlign.justify,
+                  style: TextStyle(fontSize: 15.0),
                 ),
               ],
             ),
@@ -181,6 +205,19 @@ class _EmployeeRequestLeaveDetailViewState
                 ),
                 Text(
                   "${widget.leave["response"]["operator"]}",
+                  style: TextStyle(fontSize: 15.0),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Modified date",
+                  style: TextStyle(fontSize: 15.0),
+                ),
+                Text(
+                  "${decisionDate}",
                   style: TextStyle(fontSize: 15.0),
                 ),
               ],

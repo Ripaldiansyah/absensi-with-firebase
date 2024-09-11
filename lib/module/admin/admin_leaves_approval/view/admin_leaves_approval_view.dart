@@ -1,53 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core.dart';
-import '../controller/employee_request_leave_controller.dart';
-import '../state/employee_request_leave_state.dart';
+import '../controller/admin_leaves_approval_controller.dart';
+import '../state/admin_leaves_approval_state.dart';
 import 'package:get_it/get_it.dart';
 
-class EmployeeRequestLeaveView extends StatefulWidget {
-  const EmployeeRequestLeaveView({super.key});
+class AdminLeavesApprovalView extends StatefulWidget {
+  const AdminLeavesApprovalView({super.key});
 
   @override
-  State<EmployeeRequestLeaveView> createState() =>
-      _EmployeeRequestLeaveViewState();
+  State<AdminLeavesApprovalView> createState() =>
+      _AdminLeavesApprovalViewState();
 }
 
-class _EmployeeRequestLeaveViewState extends State<EmployeeRequestLeaveView> {
-  EmployeeRequestLeaveController controller = EmployeeRequestLeaveController();
+class _AdminLeavesApprovalViewState extends State<AdminLeavesApprovalView> {
+  AdminLeavesApprovalController controller = AdminLeavesApprovalController();
 
   @override
   void initState() {
-    if (GetIt.I.isRegistered<EmployeeRequestLeaveController>()) {
-      GetIt.I.unregister<EmployeeRequestLeaveController>();
+    if (GetIt.I.isRegistered<AdminLeavesApprovalController>()) {
+      GetIt.I.unregister<AdminLeavesApprovalController>();
     }
     GetIt.I.registerSingleton(controller);
     controller.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) => controller.ready());
-
-    // Fetch leaves data when the widget initializes
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) => controller.ready(),
+    );
     controller.fetchRequestLeaves();
-
     super.initState();
-  }
-
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (BuildContext context) => controller,
-      child: BlocListener<EmployeeRequestLeaveController,
-          EmployeeRequestLeaveState>(
+      child:
+          BlocListener<AdminLeavesApprovalController, AdminLeavesApprovalState>(
         listener: (context, state) {},
-        child: BlocBuilder<EmployeeRequestLeaveController,
-            EmployeeRequestLeaveState>(
+        child: BlocBuilder<AdminLeavesApprovalController,
+            AdminLeavesApprovalState>(
           builder: (context, state) {
-            final bloc = context.read<EmployeeRequestLeaveController>();
+            final bloc = context.read<AdminLeavesApprovalController>();
 
             return buildView(context, bloc, state);
           },
@@ -58,12 +51,13 @@ class _EmployeeRequestLeaveViewState extends State<EmployeeRequestLeaveView> {
 
   Widget buildView(
     BuildContext context,
-    EmployeeRequestLeaveController controller,
-    EmployeeRequestLeaveState state,
+    AdminLeavesApprovalController controller,
+    AdminLeavesApprovalState state,
   ) {
+    controller.getRequestLeaves();
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Employee Request Leave'),
+        title: const Text('Admin Request Leave'),
       ),
       body: Stack(
         children: [
@@ -79,7 +73,7 @@ class _EmployeeRequestLeaveViewState extends State<EmployeeRequestLeaveView> {
                   prefixIcon: Icons.search,
                   suffixIcon: null,
                   onChanged: (value) {
-                    controller.fetchSearchRequestLeaves(value);
+                    // controller.fetchSearchRequestLeaves(value);
                   },
                   onSubmitted: (value) {},
                 ),

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core.dart';
@@ -6,7 +7,11 @@ import '../state/employee_form_request_leave_state.dart';
 import 'package:get_it/get_it.dart';
 
 class EmployeeFormRequestLeaveView extends StatefulWidget {
-  const EmployeeFormRequestLeaveView({super.key});
+  final Map? leave;
+  EmployeeFormRequestLeaveView({
+    super.key,
+    this.leave,
+  });
 
   @override
   State<EmployeeFormRequestLeaveView> createState() =>
@@ -17,7 +22,6 @@ class _EmployeeFormRequestLeaveViewState
     extends State<EmployeeFormRequestLeaveView> {
   EmployeeFormRequestLeaveController controller =
       EmployeeFormRequestLeaveController();
-  DateTime? startLeaveDate;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
@@ -62,6 +66,7 @@ class _EmployeeFormRequestLeaveViewState
     EmployeeFormRequestLeaveController controller,
     EmployeeFormRequestLeaveState state,
   ) {
+    bool isNull = widget.leave == null ? true : false;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Employee Form Request Leave'),
@@ -79,32 +84,40 @@ class _EmployeeFormRequestLeaveViewState
                       QTextField(
                         label: "Alasan Cuti",
                         validator: Validator.required,
-                        value: null,
-                        onChanged: (value) {},
+                        value: isNull ? "" : "${widget.leave?["title"]}",
+                        onChanged: (value) {
+                          state.title = value;
+                        },
                       ),
                       QDatePicker(
                         label: "Mulai Cuti",
                         validator: Validator.required,
-                        value: null,
+                        value: (widget.leave?["startLeave"] as Timestamp?)
+                            ?.toDate(),
                         onChanged: (value) {
-                          startLeaveDate = value;
+                          state.startLeave = value;
                         },
                       ),
                       QDatePicker(
                         label: "Selesai Cuti",
                         validator: Validator.required,
-                        value: null,
-                        onChanged: (value) {},
+                        value:
+                            (widget.leave?["endLeave"] as Timestamp?)?.toDate(),
+                        onChanged: (value) {
+                          state.endLeave = value;
+                        },
                       ),
                       QTextField(
                         label: "Deskripsi cuti",
-                        value: null,
+                        value: isNull ? "" : "${widget.leave?["description"]}",
                         maxLength: 150,
                         maxLines: 4,
                         horizontal: 30,
                         vertical: 20,
                         helper: "optional",
-                        onChanged: (value) {},
+                        onChanged: (value) {
+                          state.description = value;
+                        },
                       ),
                     ],
                   ),
@@ -112,12 +125,15 @@ class _EmployeeFormRequestLeaveViewState
               ),
             ),
             QButton(
-              label: "Ajukan",
+              label: "Submit",
               onPressed: () {
                 bool isNotValid = formKey.currentState!.validate() == false;
                 if (isNotValid) {
                   return;
                 }
+                isNull
+                    ? controller.createLeave()
+                    : controller.updateLeave(widget.leave!);
               },
             ),
           ],

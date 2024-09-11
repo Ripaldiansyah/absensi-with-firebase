@@ -25,9 +25,16 @@ class EmployeeRequestLeaveController extends Cubit<EmployeeRequestLeaveState>
     //ready event
   }
 
+  emitData() {
+    emit(state.copyWith());
+  }
+
   getRequestLeaves() async {
     try {
-      return await RequestLeaveService().getLeaveByCurrentUser();
+      final leaves = await RequestLeaveService().getLeaveByCurrentUser();
+      // Emit data ke state
+      emit(state.copyWith(leaves: leaves));
+      return leaves;
     } catch (e) {
       se(e);
     }
@@ -39,5 +46,15 @@ class EmployeeRequestLeaveController extends Cubit<EmployeeRequestLeaveState>
     } catch (e) {
       se(e);
     }
+  }
+
+  Future<void> fetchRequestLeaves() async {
+    final fetchedLeaves = await getRequestLeaves();
+    state.leaves = fetchedLeaves;
+  }
+
+  Future<void> fetchSearchRequestLeaves(String text) async {
+    final fetchedLeaves = await searchLeaves(text);
+    state.leaves = fetchedLeaves;
   }
 }

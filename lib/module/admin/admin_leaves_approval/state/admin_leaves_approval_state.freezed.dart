@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'employee_request_leave_state.dart';
+part of 'admin_leaves_approval_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,38 +15,38 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$EmployeeRequestLeaveState {
+mixin _$AdminLeavesApprovalState {
   List<dynamic>? get leaves => throw _privateConstructorUsedError;
   set leaves(List<dynamic>? value) => throw _privateConstructorUsedError;
 
-  /// Create a copy of EmployeeRequestLeaveState
+  /// Create a copy of AdminLeavesApprovalState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $EmployeeRequestLeaveStateCopyWith<EmployeeRequestLeaveState> get copyWith =>
+  $AdminLeavesApprovalStateCopyWith<AdminLeavesApprovalState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $EmployeeRequestLeaveStateCopyWith<$Res> {
-  factory $EmployeeRequestLeaveStateCopyWith(EmployeeRequestLeaveState value,
-          $Res Function(EmployeeRequestLeaveState) then) =
-      _$EmployeeRequestLeaveStateCopyWithImpl<$Res, EmployeeRequestLeaveState>;
+abstract class $AdminLeavesApprovalStateCopyWith<$Res> {
+  factory $AdminLeavesApprovalStateCopyWith(AdminLeavesApprovalState value,
+          $Res Function(AdminLeavesApprovalState) then) =
+      _$AdminLeavesApprovalStateCopyWithImpl<$Res, AdminLeavesApprovalState>;
   @useResult
   $Res call({List<dynamic>? leaves});
 }
 
 /// @nodoc
-class _$EmployeeRequestLeaveStateCopyWithImpl<$Res,
-        $Val extends EmployeeRequestLeaveState>
-    implements $EmployeeRequestLeaveStateCopyWith<$Res> {
-  _$EmployeeRequestLeaveStateCopyWithImpl(this._value, this._then);
+class _$AdminLeavesApprovalStateCopyWithImpl<$Res,
+        $Val extends AdminLeavesApprovalState>
+    implements $AdminLeavesApprovalStateCopyWith<$Res> {
+  _$AdminLeavesApprovalStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of EmployeeRequestLeaveState
+  /// Create a copy of AdminLeavesApprovalState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -63,35 +63,35 @@ class _$EmployeeRequestLeaveStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$EmployeeRequestLeaveStateImplCopyWith<$Res>
-    implements $EmployeeRequestLeaveStateCopyWith<$Res> {
-  factory _$$EmployeeRequestLeaveStateImplCopyWith(
-          _$EmployeeRequestLeaveStateImpl value,
-          $Res Function(_$EmployeeRequestLeaveStateImpl) then) =
-      __$$EmployeeRequestLeaveStateImplCopyWithImpl<$Res>;
+abstract class _$$AdminLeavesApprovalStateImplCopyWith<$Res>
+    implements $AdminLeavesApprovalStateCopyWith<$Res> {
+  factory _$$AdminLeavesApprovalStateImplCopyWith(
+          _$AdminLeavesApprovalStateImpl value,
+          $Res Function(_$AdminLeavesApprovalStateImpl) then) =
+      __$$AdminLeavesApprovalStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<dynamic>? leaves});
 }
 
 /// @nodoc
-class __$$EmployeeRequestLeaveStateImplCopyWithImpl<$Res>
-    extends _$EmployeeRequestLeaveStateCopyWithImpl<$Res,
-        _$EmployeeRequestLeaveStateImpl>
-    implements _$$EmployeeRequestLeaveStateImplCopyWith<$Res> {
-  __$$EmployeeRequestLeaveStateImplCopyWithImpl(
-      _$EmployeeRequestLeaveStateImpl _value,
-      $Res Function(_$EmployeeRequestLeaveStateImpl) _then)
+class __$$AdminLeavesApprovalStateImplCopyWithImpl<$Res>
+    extends _$AdminLeavesApprovalStateCopyWithImpl<$Res,
+        _$AdminLeavesApprovalStateImpl>
+    implements _$$AdminLeavesApprovalStateImplCopyWith<$Res> {
+  __$$AdminLeavesApprovalStateImplCopyWithImpl(
+      _$AdminLeavesApprovalStateImpl _value,
+      $Res Function(_$AdminLeavesApprovalStateImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of EmployeeRequestLeaveState
+  /// Create a copy of AdminLeavesApprovalState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? leaves = freezed,
   }) {
-    return _then(_$EmployeeRequestLeaveStateImpl(
+    return _then(_$AdminLeavesApprovalStateImpl(
       leaves: freezed == leaves
           ? _value.leaves
           : leaves // ignore: cast_nullable_to_non_nullable
@@ -102,8 +102,8 @@ class __$$EmployeeRequestLeaveStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$EmployeeRequestLeaveStateImpl implements _EmployeeRequestLeaveState {
-  _$EmployeeRequestLeaveStateImpl({this.leaves = null});
+class _$AdminLeavesApprovalStateImpl implements _AdminLeavesApprovalState {
+  _$AdminLeavesApprovalStateImpl({this.leaves = null});
 
   @override
   @JsonKey()
@@ -111,31 +111,31 @@ class _$EmployeeRequestLeaveStateImpl implements _EmployeeRequestLeaveState {
 
   @override
   String toString() {
-    return 'EmployeeRequestLeaveState(leaves: $leaves)';
+    return 'AdminLeavesApprovalState(leaves: $leaves)';
   }
 
-  /// Create a copy of EmployeeRequestLeaveState
+  /// Create a copy of AdminLeavesApprovalState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$EmployeeRequestLeaveStateImplCopyWith<_$EmployeeRequestLeaveStateImpl>
-      get copyWith => __$$EmployeeRequestLeaveStateImplCopyWithImpl<
-          _$EmployeeRequestLeaveStateImpl>(this, _$identity);
+  _$$AdminLeavesApprovalStateImplCopyWith<_$AdminLeavesApprovalStateImpl>
+      get copyWith => __$$AdminLeavesApprovalStateImplCopyWithImpl<
+          _$AdminLeavesApprovalStateImpl>(this, _$identity);
 }
 
-abstract class _EmployeeRequestLeaveState implements EmployeeRequestLeaveState {
-  factory _EmployeeRequestLeaveState({List<dynamic>? leaves}) =
-      _$EmployeeRequestLeaveStateImpl;
+abstract class _AdminLeavesApprovalState implements AdminLeavesApprovalState {
+  factory _AdminLeavesApprovalState({List<dynamic>? leaves}) =
+      _$AdminLeavesApprovalStateImpl;
 
   @override
   List<dynamic>? get leaves;
   set leaves(List<dynamic>? value);
 
-  /// Create a copy of EmployeeRequestLeaveState
+  /// Create a copy of AdminLeavesApprovalState
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$EmployeeRequestLeaveStateImplCopyWith<_$EmployeeRequestLeaveStateImpl>
+  _$$AdminLeavesApprovalStateImplCopyWith<_$AdminLeavesApprovalStateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

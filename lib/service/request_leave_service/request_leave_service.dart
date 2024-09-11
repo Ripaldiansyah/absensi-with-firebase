@@ -23,6 +23,7 @@ class RequestLeaveService {
           'startLeave': doc.data()['startLeave'],
           'endLeave': doc.data()['endLeave'],
           'description': doc.data()['description'],
+          'idResponse': doc.data()['idResponse'],
           'response': responseData.data() // Add the request data if needed
         });
       }
@@ -55,13 +56,80 @@ class RequestLeaveService {
     }
   }
 
-  Future<void> insertLeaveRequest(Map<String, dynamic> leaveData) async {
+  Future insertLeaveRequest(Map<String, dynamic> leaveData) async {
     try {
+      User? user = FirebaseAuth.instance.currentUser;
+
+      DocumentReference reference = await FirebaseFirestore.instance
+          .collection('leave_request')
+          .doc(user?.uid)
+          .collection('response')
+          .add({
+        'message': "-",
+        'operator': "-",
+        'responseDate': null,
+        'status': "pending",
+      });
+
+      DocumentReference request = await FirebaseFirestore.instance
+          .collection('leave_request')
+          .doc(user?.uid)
+          .collection('request')
+          .add({
+        ...leaveData,
+        'idResponse': reference.id,
+        'response': reference,
+      });
+
+      String leaveId = request.id;
+
+      await reference.update({
+        'idRequest': leaveId,
+      });
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
+  Future<void> updateLeaveRequest(
+      String leaveId, Map<String, dynamic> updatedData) async {
+    try {
+      User? user = FirebaseAuth.instance.currentUser;
+      print(updatedData);
+
       await FirebaseFirestore.instance
           .collection('leave_request')
-          .doc(await getCurrentId())
+          .doc(user?.uid)
           .collection('request')
-          .add(leaveData);
+          .doc(leaveId)
+          .update(updatedData);
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
+  Future<void> deleteLeaveRequest(
+    String responseId,
+    String requestId,
+  ) async {
+    print(responseId);
+    print(requestId);
+    try {
+      User? user = FirebaseAuth.instance.currentUser;
+
+      await FirebaseFirestore.instance
+          .collection('leave_request')
+          .doc(user?.uid)
+          .collection('request')
+          .doc(requestId)
+          .delete();
+
+      await FirebaseFirestore.instance
+          .collection('leave_request')
+          .doc(user?.uid)
+          .collection('response')
+          .doc(responseId)
+          .delete();
     } catch (e) {
       print(e);
       throw Exception(e);
