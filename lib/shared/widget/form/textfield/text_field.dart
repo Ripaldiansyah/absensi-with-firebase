@@ -13,12 +13,15 @@ class QTextField extends StatefulWidget {
     this.hint,
     this.helper,
     this.maxLength,
+    this.maxLines,
     this.onSubmitted,
     this.obscure = false,
     this.enabled = true,
     this.prefixIcon,
     this.suffixIcon,
     this.focusNode,
+    this.horizontal,
+    this.vertical,
     this.controller,
   });
   final String? id;
@@ -30,6 +33,10 @@ class QTextField extends StatefulWidget {
   final bool obscure;
   final bool enabled;
   final int? maxLength;
+  final int? maxLines;
+  final double? horizontal;
+  final double? vertical;
+
   final IconData? prefixIcon;
   final IconData? suffixIcon;
   final Function(String) onChanged;
@@ -102,7 +109,7 @@ class _QTextFieldState extends State<QTextField> {
         );
       }
     }
-
+    bool isPaddingNull = widget.horizontal == null || widget.horizontal == null;
     return Container(
       margin: const EdgeInsets.only(
         bottom: 20,
@@ -113,8 +120,15 @@ class _QTextFieldState extends State<QTextField> {
         focusNode: focusNode,
         validator: widget.validator,
         maxLength: widget.maxLength,
+        maxLines: widget.maxLines,
         obscureText: visible == false && widget.obscure,
         decoration: InputDecoration(
+          contentPadding: !isPaddingNull
+              ? EdgeInsets.symmetric(
+                  horizontal: widget.horizontal!,
+                  vertical: widget.vertical!,
+                )
+              : null,
           labelText: widget.label,
           suffixIcon: icon,
           helperText: widget.helper,

@@ -10,6 +10,14 @@ bool get isAdmin => role == "admin";
 bool get isUser => role == "user";
 
 bool get isLoggedIn => token == null;
+Future getCurrentId() async {
+  try {
+    User? user = FirebaseAuth.instance.currentUser;
+    return user?.uid.toString();
+  } catch (e) {
+    throw Exception(e);
+  }
+}
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;

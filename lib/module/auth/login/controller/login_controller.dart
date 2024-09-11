@@ -31,11 +31,7 @@ class LoginController extends Cubit<LoginState> implements IBlocBase {
       );
       ss("Login Sukses");
 
-      if (isUser) {
-        Get.offAll(EmployeeMainNavigationView());
-      } else if (isAdmin) {
-        Get.offAll(AdminMainNavigationView());
-      }
+      Get.offAll(MainNavigationView());
     } catch (e) {
       se("Periksa kembali email dan password Anda");
     }

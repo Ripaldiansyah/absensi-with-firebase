@@ -1,10 +1,11 @@
 {
     "modules": [
         "auth/login",
-        "employee/employee_main_navigation",
-        "employee/employee_dashboard",
-        "admin/admin_main_navigation",
-        "admin/admin_dashboard",
+        "employee/employee_menu",
+        "employee/employee_request_leave",
+        "employee/employee_request_leave_detail",
+        "employee/employee_form_request_leave",
+        "admin/admin_menu",
         "profile/profile_setting",
         "profile/profile_edit"
     ],

@@ -16,6 +16,7 @@ class QDatePicker extends StatefulWidget {
   final DateTime? value;
   final String? hint;
   final String? helper;
+
   final String? Function(String?)? validator;
   final Function(DateTime) onChanged;
 
@@ -93,6 +94,22 @@ class _QDatePickerState extends State<QDatePicker> {
               ),
               helperText: widget.helper,
               hintText: widget.hint,
+              fillColor: Colors.white,
+              enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: primaryColor),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(8),
+                  )),
+              focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: primaryColor),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(8),
+                  )),
+              errorBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: dangerColor),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(8),
+                  )),
             ),
           ),
         ),

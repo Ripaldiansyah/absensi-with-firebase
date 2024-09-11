@@ -11,15 +11,19 @@
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
-import 'module/admin/admin_dashboard/controller/admin_dashboard_controller.dart'
-    as _i714;
-import 'module/admin/admin_main_navigation/controller/admin_main_navigation_controller.dart'
-    as _i491;
+import 'module/admin/admin_menu/controller/admin_menu_controller.dart' as _i549;
 import 'module/auth/login/controller/login_controller.dart' as _i994;
-import 'module/employee/employee_dashboard/controller/employee_dashboard_controller.dart'
-    as _i973;
-import 'module/employee/employee_main_navigation/controller/employee_main_navigation_controller.dart'
-    as _i970;
+import 'module/dashboard/controller/dashboard_controller.dart' as _i157;
+import 'module/employee/employee_form_request_leave/controller/employee_form_request_leave_controller.dart'
+    as _i134;
+import 'module/employee/employee_menu/controller/employee_menu_controller.dart'
+    as _i14;
+import 'module/employee/employee_request_leave/controller/employee_request_leave_controller.dart'
+    as _i411;
+import 'module/employee/employee_request_leave_detail/controller/employee_request_leave_detail_controller.dart'
+    as _i471;
+import 'module/main_navigation/controller/main_navigation_controller.dart'
+    as _i164;
 import 'module/profile/profile_edit/controller/profile_edit_controller.dart'
     as _i216;
 import 'module/profile/profile_setting/controller/profile_setting_controller.dart'
@@ -36,19 +40,23 @@ extension GetItInjectableX on _i174.GetIt {
       environment,
       environmentFilter,
     );
-    gh.singleton<_i714.AdminDashboardController>(
-        () => _i714.AdminDashboardController());
-    gh.singleton<_i491.AdminMainNavigationController>(
-        () => _i491.AdminMainNavigationController());
     gh.singleton<_i994.LoginController>(() => _i994.LoginController());
-    gh.singleton<_i973.EmployeeDashboardController>(
-        () => _i973.EmployeeDashboardController());
-    gh.singleton<_i970.EmployeeMainNavigationController>(
-        () => _i970.EmployeeMainNavigationController());
     gh.singleton<_i63.ProfileSettingController>(
         () => _i63.ProfileSettingController());
     gh.singleton<_i216.ProfileEditController>(
         () => _i216.ProfileEditController());
+    gh.singleton<_i157.DashboardController>(() => _i157.DashboardController());
+    gh.singleton<_i164.MainNavigationController>(
+        () => _i164.MainNavigationController());
+    gh.singleton<_i14.EmployeeMenuController>(
+        () => _i14.EmployeeMenuController());
+    gh.singleton<_i549.AdminMenuController>(() => _i549.AdminMenuController());
+    gh.singleton<_i411.EmployeeRequestLeaveController>(
+        () => _i411.EmployeeRequestLeaveController());
+    gh.singleton<_i471.EmployeeRequestLeaveDetailController>(
+        () => _i471.EmployeeRequestLeaveDetailController());
+    gh.singleton<_i134.EmployeeFormRequestLeaveController>(
+        () => _i134.EmployeeFormRequestLeaveController());
     return this;
   }
 }
