@@ -26,7 +26,7 @@ class _AdminLeavesApprovalViewState extends State<AdminLeavesApprovalView> {
     WidgetsBinding.instance.addPostFrameCallback(
       (_) => controller.ready(),
     );
-    controller.fetchRequestLeaves();
+    // controller.fetchRequestLeaves();
     super.initState();
   }
 
@@ -59,101 +59,106 @@ class _AdminLeavesApprovalViewState extends State<AdminLeavesApprovalView> {
       appBar: AppBar(
         title: const Text('Admin Request Leave'),
       ),
-      body: Stack(
-        children: [
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                QSearchField(
-                  label: "Search",
-                  value: null,
-                  prefixIcon: Icons.search,
-                  suffixIcon: null,
-                  onChanged: (value) {
-                    // controller.fetchSearchRequestLeaves(value);
-                  },
-                  onSubmitted: (value) {},
-                ),
-                Expanded(
-                  child: state.leaves == null
-                      ? Center(
-                          child:
-                              CircularProgressIndicator()) // Show loader if data is not yet loaded
-                      : ListView.builder(
-                          itemCount: state.leaves?.length ?? 0,
-                          physics: const ScrollPhysics(),
-                          itemBuilder: (BuildContext context, int index) {
-                            var sortedLeaves = state.leaves!
-                              ..sort((a, b) =>
-                                  b["requestDate"].compareTo(a["requestDate"]));
-                            var leave = sortedLeaves[index];
-                            return InkWell(
-                              onTap: () =>
-                                  Get.to(EmployeeRequestLeaveDetailView(
-                                leave: leave,
-                              )),
-                              child: Card(
-                                child: ListTile(
-                                  leading: CircleAvatar(
-                                    backgroundColor: Colors.white,
-                                    child: Icon(
-                                      leave["response"]["status"] == "rejected"
-                                          ? Icons.close
-                                          : leave["response"]["status"] ==
-                                                  "approved"
-                                              ? Icons.check
-                                              : Icons.hourglass_top,
-                                      color: leave["response"]["status"] ==
-                                              "rejected"
-                                          ? Colors.red
-                                          : leave["response"]["status"] ==
-                                                  "approved"
-                                              ? Colors.green
-                                              : Colors.grey,
+      body: Padding(
+        padding: EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            QSearchField(
+              label: "Search",
+              value: null,
+              prefixIcon: Icons.search,
+              suffixIcon: null,
+              onChanged: (value) {},
+              onSubmitted: (value) {},
+            ),
+            Expanded(
+              child: state.users == null
+                  ? Center(
+                      child:
+                          CircularProgressIndicator()) // Show loader if data is not yet loaded
+                  : ListView.builder(
+                      itemCount: state.users?.length ?? 0,
+                      physics: const ScrollPhysics(),
+                      itemBuilder: (BuildContext context, int index) {
+                        var userLeave = state.users![index];
+                        return InkWell(
+                          onTap: () => Get.to(AdminLeavesListByUserView(
+                            userLeave: userLeave,
+                          )),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: inputColor,
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(12.0),
+                              ),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.only(
+                                left: 20,
+                                right: 20,
+                                top: 5,
+                                bottom: 5,
+                              ),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "${userLeave["user"]["name"]}",
+                                          style: TextStyle(
+                                            fontSize: 18.0,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        Text(
+                                          "${userLeave["user"]["role"]}",
+                                          style: TextStyle(
+                                            fontSize: 14.0,
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
-                                  title: Text(leave["title"] ?? 'No Title'),
-                                  subtitle: Text(
-                                    leave["requestDate"] != null
-                                        ? DateFormat('dd MMMM yyyy').format(
-                                            leave["requestDate"].toDate())
-                                        : 'No Date',
-                                  ),
-                                ),
+                                  if (userLeave["user"]["countPending"] != 0)
+                                    Container(
+                                      child: Stack(
+                                        children: [
+                                          CircleAvatar(
+                                            backgroundColor: Colors.white,
+                                            child: Icon(
+                                              Icons.hourglass_top_sharp,
+                                              color: primaryColor,
+                                            ),
+                                          ),
+                                          Positioned(
+                                            right: 1,
+                                            child: Text(
+                                              "${userLeave["user"]["countPending"]}",
+                                              style: TextStyle(
+                                                fontSize: 10.0,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                ],
                               ),
-                            );
-                          },
-                        ),
-                ),
-              ],
+                            ),
+                          ),
+                        );
+                      },
+                    ),
             ),
-          ),
-          Positioned(
-            right: 20,
-            bottom: 20,
-            child: Container(
-              width: 60,
-              height: 60,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(99.0),
-                ),
-                color: primaryColor,
-              ),
-              child: IconButton(
-                onPressed: () => Get.to(EmployeeFormRequestLeaveView()),
-                color: Colors.white,
-                icon: const Icon(
-                  Icons.add,
-                  size: 24.0,
-                ),
-              ),
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

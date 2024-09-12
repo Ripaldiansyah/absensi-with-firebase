@@ -6,7 +6,6 @@ class RequestLeaveService {
   Future<List<Map<String, dynamic>>> getLeaveByCurrentUser() async {
     try {
       List<Map<String, dynamic>> leaves = [];
-      User? user = FirebaseAuth.instance.currentUser;
 
       var requestLeave = await FirebaseFirestore.instance
           .collection('leave_request')
@@ -95,7 +94,6 @@ class RequestLeaveService {
       String leaveId, Map<String, dynamic> updatedData) async {
     try {
       User? user = FirebaseAuth.instance.currentUser;
-      print(updatedData);
 
       await FirebaseFirestore.instance
           .collection('leave_request')

@@ -26,24 +26,11 @@ class AdminLeavesApprovalController extends Cubit<AdminLeavesApprovalState>
     //ready event
   }
 
-  Future<void> fetchRequestLeaves() async {
-    final fetchedLeaves = await getRequestLeaves();
-    state.leaves = fetchedLeaves;
-  }
-
-  // Future<void> fetchSearchRequestLeaves(String text) async {
-  //   final fetchedLeaves = await searchLeaves(text);
-  //   state.leaves = fetchedLeaves;
-  // }
-
   getRequestLeaves() async {
     try {
-      print(UsersService().getAllUser());
-
-      // final leaves = await ResponseLeavesService().getLeaveByCurrentUser();
-      // // Emit data ke state
-      // emit(state.copyWith(leaves: leaves));
-      // return leaves;
+      final users = await UsersService().getAllUsers();
+      final userLeaves = await ResponseLeavesService().getAllUserLeave(users);
+      emit(state.copyWith(users: userLeaves));
     } catch (e) {
       se(e);
     }

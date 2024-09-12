@@ -16,8 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AdminLeavesApprovalState {
-  List<dynamic>? get leaves => throw _privateConstructorUsedError;
-  set leaves(List<dynamic>? value) => throw _privateConstructorUsedError;
+  List<dynamic>? get users => throw _privateConstructorUsedError;
+  set users(List<dynamic>? value) => throw _privateConstructorUsedError;
 
   /// Create a copy of AdminLeavesApprovalState
   /// with the given fields replaced by the non-null parameter values.
@@ -32,7 +32,7 @@ abstract class $AdminLeavesApprovalStateCopyWith<$Res> {
           $Res Function(AdminLeavesApprovalState) then) =
       _$AdminLeavesApprovalStateCopyWithImpl<$Res, AdminLeavesApprovalState>;
   @useResult
-  $Res call({List<dynamic>? leaves});
+  $Res call({List<dynamic>? users});
 }
 
 /// @nodoc
@@ -51,12 +51,12 @@ class _$AdminLeavesApprovalStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? leaves = freezed,
+    Object? users = freezed,
   }) {
     return _then(_value.copyWith(
-      leaves: freezed == leaves
-          ? _value.leaves
-          : leaves // ignore: cast_nullable_to_non_nullable
+      users: freezed == users
+          ? _value.users
+          : users // ignore: cast_nullable_to_non_nullable
               as List<dynamic>?,
     ) as $Val);
   }
@@ -71,7 +71,7 @@ abstract class _$$AdminLeavesApprovalStateImplCopyWith<$Res>
       __$$AdminLeavesApprovalStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<dynamic>? leaves});
+  $Res call({List<dynamic>? users});
 }
 
 /// @nodoc
@@ -89,12 +89,12 @@ class __$$AdminLeavesApprovalStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? leaves = freezed,
+    Object? users = freezed,
   }) {
     return _then(_$AdminLeavesApprovalStateImpl(
-      leaves: freezed == leaves
-          ? _value.leaves
-          : leaves // ignore: cast_nullable_to_non_nullable
+      users: freezed == users
+          ? _value.users
+          : users // ignore: cast_nullable_to_non_nullable
               as List<dynamic>?,
     ));
   }
@@ -103,15 +103,15 @@ class __$$AdminLeavesApprovalStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AdminLeavesApprovalStateImpl implements _AdminLeavesApprovalState {
-  _$AdminLeavesApprovalStateImpl({this.leaves = null});
+  _$AdminLeavesApprovalStateImpl({this.users = null});
 
   @override
   @JsonKey()
-  List<dynamic>? leaves;
+  List<dynamic>? users;
 
   @override
   String toString() {
-    return 'AdminLeavesApprovalState(leaves: $leaves)';
+    return 'AdminLeavesApprovalState(users: $users)';
   }
 
   /// Create a copy of AdminLeavesApprovalState
@@ -125,12 +125,12 @@ class _$AdminLeavesApprovalStateImpl implements _AdminLeavesApprovalState {
 }
 
 abstract class _AdminLeavesApprovalState implements AdminLeavesApprovalState {
-  factory _AdminLeavesApprovalState({List<dynamic>? leaves}) =
+  factory _AdminLeavesApprovalState({List<dynamic>? users}) =
       _$AdminLeavesApprovalStateImpl;
 
   @override
-  List<dynamic>? get leaves;
-  set leaves(List<dynamic>? value);
+  List<dynamic>? get users;
+  set users(List<dynamic>? value);
 
   /// Create a copy of AdminLeavesApprovalState
   /// with the given fields replaced by the non-null parameter values.

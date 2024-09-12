@@ -45,7 +45,7 @@ class _MainAppState extends State<MainApp> {
 
   @override
   Widget build(BuildContext context) {
-    Widget mainView = isLoggedIn ? LoginView() : MainNavigationView();
+    Widget mainView = isLoggedIn ? LoginView() : AdminLeavesApprovalView();
 
     return MaterialApp(
       title: 'Login',

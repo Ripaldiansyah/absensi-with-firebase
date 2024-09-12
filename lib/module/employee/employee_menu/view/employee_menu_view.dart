@@ -74,7 +74,9 @@ class _EmployeeMenuViewState extends State<EmployeeMenuView> {
             {
               "icon": Icons.assignment_turned_in_sharp,
               "label": "Izin",
-              "onTap": () {},
+              "onTap": () {
+                Get.to(AdminLeavesApprovalView());
+              },
             },
             {
               "icon": Icons.medical_services_sharp,

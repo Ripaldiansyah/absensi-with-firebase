@@ -7,6 +7,8 @@
         "employee/employee_form_request_leave",
         "admin/admin_menu",
         "admin/admin_leaves_approval",
+        "admin/admin_leaves_list_by_user",
+        "admin/admin_leaves_detail",
         "profile/profile_setting",
         "profile/profile_edit"
     ],

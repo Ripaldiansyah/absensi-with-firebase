@@ -75,12 +75,12 @@ class _LoginViewState extends State<LoginView> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.network(
-                      "https://upload.wikimedia.org/wikipedia/id/thumb/6/62/UNPAM_logo1.png/200px-UNPAM_logo1.png",
-                      width: 120,
-                      height: 100.0,
-                      fit: BoxFit.cover,
-                    )
+                    // Image.network(
+                    //   "https://upload.wikimedia.org/wikipedia/id/thumb/6/62/UNPAM_logo1.png/200px-UNPAM_logo1.png",
+                    //   width: 120,
+                    //   height: 100.0,
+                    //   fit: BoxFit.cover,
+                    // )
                   ],
                 ),
                 login_title(),
