@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hyper_ui/module/employee/employee_request_leave/view/employee_request_leave_view.dart';
+import 'package:hyper_ui/module/employee/leave/employee_request_leave/view/employee_request_leave_view.dart';
 import '../../../../core.dart';
 import '../controller/employee_menu_controller.dart';
 import '../state/employee_menu_state.dart';
@@ -75,13 +75,15 @@ class _EmployeeMenuViewState extends State<EmployeeMenuView> {
               "icon": Icons.assignment_turned_in_sharp,
               "label": "Izin",
               "onTap": () {
-                Get.to(AdminLeavesApprovalView());
+                Get.to(EmployeeRequestPermitView());
               },
             },
             {
               "icon": Icons.medical_services_sharp,
               "label": "Sakit",
-              "onTap": () {},
+              "onTap": () {
+                Get.to(EmployeeRequestSickView());
+              },
             },
           ];
 

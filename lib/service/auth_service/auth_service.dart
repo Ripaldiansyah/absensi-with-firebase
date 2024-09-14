@@ -34,18 +34,24 @@ class AuthService {
       );
 
       User? user = userCredential.user;
+      if (user == null) {
+        throw Exception("User is null after login");
+      }
+
       DocumentSnapshot userDoc =
-          await _firestore.collection('users').doc(user?.uid).get();
+          await _firestore.collection('users').doc(user.uid).get();
 
       if (userDoc.exists) {
         String role = userDoc.get('role') as String;
         String name = userDoc.get('name') as String;
         String phoneNumber = userDoc.get('phoneNumber') as String;
-        String? token = user?.refreshToken;
-
+        String? token = await user.getIdToken();
+        if (token == null) {
+          throw Exception("Token is null after login");
+        }
         DBService.set("name", name);
         DBService.set("role", role);
-        DBService.set("token", token!);
+        DBService.set("token", token);
         DBService.set("phoneNumber", phoneNumber);
         return true;
       }

@@ -59,7 +59,7 @@ class _MainNavigationViewState extends State<MainNavigationView> {
     Widget menu =
         DBService.get("role") == "admin" ? AdminMenuView() : EmployeeMenuView();
     return QNavigation(
-      mode: QNavigationMode.nav2,
+      mode: QNavigationMode.nav0,
       pages: [
         DashboardView(),
         menu,
@@ -67,16 +67,19 @@ class _MainNavigationViewState extends State<MainNavigationView> {
       ],
       menus: [
         NavigationMenu(
-          icon: Icons.dashboard,
-          label: "Dashboard",
+          icon: Icons.home_outlined,
+          label: "Home",
+          iconActive: Icons.home,
         ),
         NavigationMenu(
-          icon: Icons.widgets,
+          icon: Icons.widgets_outlined,
           label: "Menu",
+          iconActive: Icons.widgets,
         ),
         NavigationMenu(
-          icon: Icons.person,
+          icon: Icons.person_outline,
           label: "Profile",
+          iconActive: Icons.person,
         ),
       ],
     );

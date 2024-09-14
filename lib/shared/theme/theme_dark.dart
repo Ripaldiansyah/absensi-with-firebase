@@ -13,10 +13,10 @@ ThemeData getDarkTheme() {
         color: Colors.white,
       ),
     ),
-    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      unselectedItemColor: Colors.grey,
-      selectedItemColor: Colors.white,
-    ),
+    // bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+    //   unselectedItemColor: Colors.grey,
+    //   selectedItemColor: Colors.white,
+    // ),
     tabBarTheme: const TabBarTheme(
       unselectedLabelColor: Colors.grey,
       labelColor: Colors.white,

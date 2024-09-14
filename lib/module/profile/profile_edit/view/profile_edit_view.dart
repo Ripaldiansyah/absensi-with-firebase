@@ -58,26 +58,8 @@ class _ProfileEditViewState extends State<ProfileEditView> {
   ) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Center(
-          child: Text(
-            'Edit Profile',
-            style: TextStyle(
-              fontSize: 18,
-              color: Colors.black,
-              fontWeight: FontWeight.w300,
-            ),
-          ),
-        ),
-        leading: IconButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          icon: const Icon(
-            Icons.arrow_back_ios,
-            color: Colors.black,
-            size: 24.0,
-          ),
+        title: Text(
+          'Edit Profile',
         ),
       ),
       body: Padding(

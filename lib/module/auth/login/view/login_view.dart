@@ -68,83 +68,90 @@ class _LoginViewState extends State<LoginView> {
           padding: EdgeInsets.all(20.0),
           child: Form(
             key: formKey,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+            child: SingleChildScrollView(
+              controller: ScrollController(),
+              child: Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Image.network(
-                    //   "https://upload.wikimedia.org/wikipedia/id/thumb/6/62/UNPAM_logo1.png/200px-UNPAM_logo1.png",
-                    //   width: 120,
-                    //   height: 100.0,
-                    //   fit: BoxFit.cover,
-                    // )
-                  ],
-                ),
-                login_title(),
-                const SizedBox(
-                  height: 30.0,
-                ),
-                QTextField(
-                  label: "Email",
-                  hint: "Masukan Email",
-                  validator: Validator.email,
-                  suffixIcon: null,
-                  value: isRemember ? DBService.get("email") : null,
-                  onChanged: (value) {
-                    state.email = value;
-                    DBService.set("email", value);
-                  },
-                ),
-                QTextField(
-                  label: "Password",
-                  maxLines: null,
-                  obscure: true,
-                  hint: "Masukan password",
-                  validator: Validator.required,
-                  suffixIcon: Icons.password,
-                  value: isRemember ? DBService.get("password") : null,
-                  onChanged: (value) {
-                    state.password = value;
-                    DBService.set("password", value);
-                  },
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text(
-                      "Simpan Akun",
-                      style: TextStyle(
-                        fontSize: 16.0,
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          "assets/icon/logo.png",
+                          height: 60.0,
+                          fit: BoxFit.contain,
+                        ),
+                      ],
                     ),
-                    Checkbox(
-                      value: isRemember,
+                    const SizedBox(
+                      height: 30.0,
+                    ),
+                    login_title(),
+                    const SizedBox(
+                      height: 30.0,
+                    ),
+                    QTextField(
+                      label: "Email",
+                      hint: "Masukan Email",
+                      validator: Validator.email,
+                      suffixIcon: null,
+                      value: isRemember ? DBService.get("email") : null,
                       onChanged: (value) {
-                        setState(() {
-                          isRemember = value!;
-                        });
+                        state.email = value;
+                        DBService.set("email", value);
+                      },
+                    ),
+                    QTextField(
+                      label: "Password",
+                      maxLines: null,
+                      obscure: true,
+                      hint: "Masukan password",
+                      validator: Validator.required,
+                      suffixIcon: Icons.password,
+                      value: isRemember ? DBService.get("password") : null,
+                      onChanged: (value) {
+                        state.password = value;
+                        DBService.set("password", value);
+                      },
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text(
+                          "Ingat saya",
+                          style: TextStyle(
+                            fontSize: 16.0,
+                          ),
+                        ),
+                        Checkbox(
+                          value: isRemember,
+                          onChanged: (value) {
+                            setState(() {
+                              isRemember = value!;
+                            });
+                          },
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 8.0,
+                    ),
+                    QActionButton(
+                      label: "Login",
+                      onPressed: () {
+                        bool isNotValid =
+                            formKey.currentState!.validate() == false;
+                        if (isNotValid) {
+                          return;
+                        }
+                        controller.login();
                       },
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 8.0,
-                ),
-                QActionButton(
-                  label: "Save",
-                  onPressed: () {
-                    bool isNotValid = formKey.currentState!.validate() == false;
-                    if (isNotValid) {
-                      return;
-                    }
-                    controller.login();
-                  },
-                ),
-              ],
+              ),
             ),
           ),
         ),

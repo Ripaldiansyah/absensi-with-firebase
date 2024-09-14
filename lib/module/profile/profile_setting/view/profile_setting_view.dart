@@ -55,54 +55,142 @@ class _ProfileSettingViewState extends State<ProfileSettingView> {
     ProfileSettingController controller,
     ProfileSettingState state,
   ) {
-    return SafeArea(
-      child: Padding(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Profile',
+        ),
+      ),
+      body: Padding(
         padding: EdgeInsets.all(20.0),
-        child: Scaffold(
-          body: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                DBService.get("name")!,
-                style: TextStyle(
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.bold,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  child: Stack(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.only(
+                          top: 28.0,
+                        ),
+                        padding: const EdgeInsets.all(12.0),
+                        decoration: const BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(
+                              8.0,
+                            ),
+                          ),
+                        ),
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: 20.0,
+                            ),
+                            Text(
+                              DBService.get("name")!,
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 20.0,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.phone,
+                                      size: 12.0,
+                                    ),
+                                    SizedBox(
+                                      width: 4.0,
+                                    ),
+                                    Text(
+                                      DBService.get("phoneNumber")!,
+                                      style: TextStyle(
+                                        fontSize: 12.0,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  width: 8.0,
+                                ),
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.shield,
+                                      size: 12.0,
+                                    ),
+                                    SizedBox(
+                                      width: 4.0,
+                                    ),
+                                    Text(
+                                      DBService.get("role")!,
+                                      style: TextStyle(
+                                        fontSize: 12.0,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 20.0,
+                            ),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Expanded(
+                                  child: QButton(
+                                    label: "Edit Profile",
+                                    onPressed: () {
+                                      controller.editProfile();
+                                    },
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 10.0,
+                                ),
+                                Expanded(
+                                  child: QButton(
+                                    label: "Logout",
+                                    color: dangerColor,
+                                    onPressed: () {
+                                      controller.logout();
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment.topCenter,
+                        child: CircleAvatar(
+                          radius: 26.0,
+                          backgroundColor: Colors.grey[800],
+                          child: Icon(
+                            MdiIcons.domain,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              Text(
-                DBService.get("role")!,
-                style: TextStyle(
-                  fontSize: 14.0,
-                ),
-              ),
-              Text(
-                DBService.get("phoneNumber")!,
-                style: TextStyle(
-                  fontSize: 14.0,
-                ),
-              ),
-              const SizedBox(
-                height: 20.0,
-              ),
-              QButton(
-                label: "Edit Profile",
-                onPressed: () {
-                  controller.editProfile();
-                },
-              ),
-              const SizedBox(
-                height: 10.0,
-              ),
-              QButton(
-                label: "Logout",
-                color: dangerColor,
-                onPressed: () {
-                  controller.logout();
-                },
-              ),
-            ],
-          ),
+              ],
+            ),
+          ],
         ),
       ),
     );

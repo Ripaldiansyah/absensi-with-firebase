@@ -22,7 +22,7 @@ ThemeData getDefaultTheme() {
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       unselectedItemColor: Colors.grey,
-      selectedItemColor: Colors.blueGrey[900],
+      selectedItemColor: primaryColor,
     ),
     tabBarTheme: TabBarTheme(
       unselectedLabelColor: Colors.grey,
@@ -61,21 +61,19 @@ ThemeData getDefaultTheme() {
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
         borderSide: BorderSide(
-          color: Colors.grey[300]!,
+          color: primaryColor,
         ),
       ),
       enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
-        borderSide: const BorderSide(
-          color: Colors.transparent,
-        ),
-      ),
+          borderSide: BorderSide(color: primaryColor),
+          borderRadius: BorderRadius.all(
+            Radius.circular(8),
+          )),
       errorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
-        borderSide: const BorderSide(
-          color: Colors.red,
-        ),
-      ),
+          borderSide: BorderSide(color: dangerColor),
+          borderRadius: BorderRadius.all(
+            Radius.circular(8),
+          )),
       disabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
         borderSide: BorderSide(
@@ -83,17 +81,16 @@ ThemeData getDefaultTheme() {
         ),
       ),
       focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
-        borderSide: BorderSide(
-          color: primaryColor,
-        ),
-      ),
+          borderSide: BorderSide(color: primaryColor),
+          borderRadius: BorderRadius.all(
+            Radius.circular(8),
+          )),
       filled: true,
       fillColor: inputColor,
     ),
     cardTheme: CardTheme(
       elevation: 0.6,
-      color: const Color(0xfff6f6f6),
+      color: const Color(0xffeaddcf),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8),
         side: BorderSide(

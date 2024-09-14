@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:hyper_ui/service/users_service/users_service.dart';
 
 class ResponseLeavesService {
   Future<List<Map<String, dynamic>>> getAllUserLeave(
@@ -80,10 +81,37 @@ class ResponseLeavesService {
           .get();
 
       for (var doc in requestLeave.docs) {
-        leaves.add(doc.data());
+        var responseLeave = await FirebaseFirestore.instance
+            .collection('leave_request')
+            .doc(userId)
+            .collection('response')
+            .doc(doc["idResponse"])
+            .get();
+        var responseLeaveData = responseLeave.data() as Map<String, dynamic>;
+        leaves.add({
+          ...doc.data(),
+          'response': responseLeaveData,
+        });
       }
 
       return leaves;
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
+  Future searchUserLeave(String text) async {
+    try {
+      final users = await UsersService().getAllUsers();
+      final userLeaves = await ResponseLeavesService().getAllUserLeave(users);
+      List<Map<String, dynamic>> userLeave = [];
+      for (var leave in userLeaves) {
+        if (leave["user"]["name"].toString().contains(text)) {
+          userLeave.add(leave);
+        }
+      }
+
+      return userLeave;
     } catch (e) {
       throw Exception(e);
     }

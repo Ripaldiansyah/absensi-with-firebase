@@ -26,14 +26,16 @@ class LoginController extends Cubit<LoginState> implements IBlocBase {
   login() async {
     try {
       bool isLogin = await AuthService().login(
-        email: DBService.get("email")!,
-        password: DBService.get("password")!,
+        email: DBService.get("email") ?? state.email!,
+        password: DBService.get("password") ?? state.password!,
       );
       ss("Login Sukses");
 
       Get.offAll(MainNavigationView());
     } catch (e) {
       se("Periksa kembali email dan password Anda");
+      // print(e);
+      // se(e);
     }
   }
 }

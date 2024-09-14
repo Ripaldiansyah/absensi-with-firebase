@@ -1,5 +1,5 @@
 import 'package:hyper_ui/firebase_options.dart';
-import 'package:hyper_ui/module/employee/employee_request_leave/view/employee_request_leave_view.dart';
+import 'package:hyper_ui/module/employee/leave/employee_request_leave/view/employee_request_leave_view.dart';
 import 'package:hyper_ui/service/auth_service/auth_service.dart';
 import 'package:hyper_ui/state_util.dart';
 import 'package:hyper_ui/core.dart';
@@ -45,7 +45,7 @@ class _MainAppState extends State<MainApp> {
 
   @override
   Widget build(BuildContext context) {
-    Widget mainView = isLoggedIn ? LoginView() : AdminLeavesApprovalView();
+    Widget mainView = isLoggedIn ? LoginView() : MainNavigationView();
 
     return MaterialApp(
       title: 'Login',

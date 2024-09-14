@@ -4,9 +4,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
 
-const String _CLOUDINARY_CLOUD_NAME = 'dotz74j1p';
-const String _CLOUDINARY_API_KEY = '983354314759691';
-const String _CLOUDINARY_UPLOAD_PRESET = 'yogjjkoh';
+const String _CLOUDINARY_CLOUD_NAME = 'dnekabv3j';
+const String _CLOUDINARY_API_KEY = '162433119152468';
+const String _CLOUDINARY_UPLOAD_PRESET = 'r1p4l';
 
 class QImagePicker extends StatefulWidget {
   const QImagePicker({

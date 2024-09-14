@@ -57,21 +57,22 @@ class _DashboardViewState extends State<DashboardView> {
     DashboardController controller,
     DashboardState state,
   ) {
-    return SafeArea(
-      child: Scaffold(
-        body: SingleChildScrollView(
-          controller: ScrollController(),
-          child: Padding(
-            padding: EdgeInsets.all(20.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                attendance(today: today),
-                const SizedBox(
-                  height: 20.0,
-                ),
-              ],
-            ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('PT SUKSES MITRA PEST'),
+      ),
+      body: SingleChildScrollView(
+        controller: ScrollController(),
+        child: Padding(
+          padding: EdgeInsets.all(20.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              attendance(today: today),
+              const SizedBox(
+                height: 20.0,
+              ),
+            ],
           ),
         ),
       ),

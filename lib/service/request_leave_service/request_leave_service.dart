@@ -46,7 +46,17 @@ class RequestLeaveService {
           .get();
 
       for (var doc in requestLeave.docs) {
-        leaves.add(doc.data());
+        var responseLeave = await FirebaseFirestore.instance
+            .collection('leave_request')
+            .doc(user?.uid)
+            .collection('response')
+            .doc(doc["idResponse"])
+            .get();
+        var responseLeaveData = responseLeave.data() as Map<String, dynamic>;
+        leaves.add({
+          ...doc.data(),
+          'response': responseLeaveData,
+        });
       }
 
       return leaves;

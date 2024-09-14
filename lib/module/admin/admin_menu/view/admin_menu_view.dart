@@ -64,7 +64,9 @@ class _AdminMenuViewState extends State<AdminMenuView> {
           {
             "icon": Icons.event_available_sharp,
             "label": "Cuti",
-            "onTap": () {},
+            "onTap": () {
+              Get.to(AdminLeavesApprovalView());
+            },
           },
           {
             "icon": Icons.assignment_turned_in_sharp,
@@ -107,7 +109,7 @@ class _AdminMenuViewState extends State<AdminMenuView> {
           itemBuilder: (BuildContext context, int index) {
             var item = items[index];
             return InkWell(
-              onTap: () => item["onTap"],
+              onTap: () => item["onTap"](),
               child: Container(
                 child: Column(
                   children: [

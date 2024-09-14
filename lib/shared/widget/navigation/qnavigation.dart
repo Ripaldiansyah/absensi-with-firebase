@@ -1,14 +1,17 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:hyper_ui/core.dart';
 
 class NavigationMenu {
   NavigationMenu({
     required this.label,
     required this.icon,
+    required this.iconActive,
     this.count = 0,
   });
   final String label;
   final IconData icon;
+  final IconData iconActive;
   final int count;
 }
 
@@ -69,19 +72,27 @@ class QNavigationState extends State<QNavigation> {
             children: widget.pages,
           ),
           bottomNavigationBar: BottomNavigationBar(
-            currentIndex: selectedIndex,
-            onTap: updateIndex,
-            type: BottomNavigationBarType.fixed,
-            items: List.generate(widget.menus.length, (index) {
-              final item = widget.menus[index];
-              return BottomNavigationBarItem(
-                icon: Icon(
-                  item.icon,
-                ),
-                label: item.label,
-              );
-            }),
-          ),
+              currentIndex: selectedIndex,
+              onTap: updateIndex,
+              type: BottomNavigationBarType.fixed,
+              items: List.generate(widget.menus.length, (index) {
+                final item = widget.menus[index];
+                return BottomNavigationBarItem(
+                  icon: Icon(
+                    item.icon,
+                    color: Color(0xffa9a8a9),
+                  ),
+                  activeIcon: Icon(
+                    item.iconActive,
+                  ),
+                  label: item.label,
+                );
+              }),
+              selectedItemColor: primaryColor,
+              selectedLabelStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+              unselectedLabelStyle: TextStyle(color: Color(0xffa9a8a9))),
         ),
       );
     }
