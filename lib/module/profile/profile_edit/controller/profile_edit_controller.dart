@@ -38,7 +38,6 @@ class ProfileEditController extends Cubit<ProfileEditState>
         newPhoneNumber: state.newPhoneNumber!,
         token: DBService.get("token")!,
       );
-      Widget mainView = MainNavigationView();
       if (isEdited) {
         ss("Perubahan sukses");
         DBService.set("email", state.newEmail!);

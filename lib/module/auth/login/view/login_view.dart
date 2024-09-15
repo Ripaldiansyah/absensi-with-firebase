@@ -107,7 +107,7 @@ class _LoginViewState extends State<LoginView> {
                       maxLines: null,
                       obscure: true,
                       hint: "Masukan password",
-                      validator: Validator.required,
+                      validator: Validator.password,
                       suffixIcon: Icons.password,
                       value: isRemember ? DBService.get("password") : null,
                       onChanged: (value) {

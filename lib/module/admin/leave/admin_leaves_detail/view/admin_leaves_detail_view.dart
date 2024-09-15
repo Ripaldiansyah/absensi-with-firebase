@@ -88,7 +88,7 @@ class _AdminLeavesDetailViewState extends State<AdminLeavesDetailView> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Admin Leaves Detail'),
+        title: const Text('Info Cuti'),
       ),
       body: Padding(
         padding: EdgeInsets.all(8.0),

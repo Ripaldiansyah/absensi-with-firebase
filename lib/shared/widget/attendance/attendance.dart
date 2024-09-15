@@ -143,8 +143,10 @@ class attendance extends StatelessWidget {
                   height: 15.0,
                 ),
                 QButton(
-                  label: "Save",
-                  onPressed: () {},
+                  label: "Check in",
+                  onPressed: () {
+                    Get.to(QRViewExample());
+                  },
                   color: Colors.white,
                   textColor: primaryColor,
                 ),

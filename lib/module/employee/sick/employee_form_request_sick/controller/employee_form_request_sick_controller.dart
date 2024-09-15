@@ -34,6 +34,7 @@ class EmployeeFormRequestSickController
         "requestDate": Timestamp.now(),
         "startDate": state.startDate,
         "endDate": state.endDate,
+        "docUrl": state.docUrl,
         "description": state.description == null ? "-" : state.description,
       };
       showLoading();

@@ -45,6 +45,7 @@ class AuthService {
         String role = userDoc.get('role') as String;
         String name = userDoc.get('name') as String;
         String phoneNumber = userDoc.get('phoneNumber') as String;
+        String status = userDoc.get('statusAccount') as String;
         String? token = await user.getIdToken();
         if (token == null) {
           throw Exception("Token is null after login");
@@ -53,7 +54,9 @@ class AuthService {
         DBService.set("role", role);
         DBService.set("token", token);
         DBService.set("phoneNumber", phoneNumber);
-        return true;
+
+        bool isEnabled = status == "enable" ? true : false;
+        return isEnabled;
       }
     } on FirebaseAuthException catch (e) {
       throw FirebaseAuthException(code: e.code, message: e.message);
@@ -80,21 +83,56 @@ class AuthService {
 
   // ... (Implementasi untuk sign up, sign out, dll.)
 
-  Future<void> registerUser(String email, String password, String role) async {
+  Future<Map<String, dynamic>?> registerUser(
+      Map<String, dynamic> userData) async {
     try {
       UserCredential userCredential =
           await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
+        email: userData["email"],
+        password: userData["password"],
       );
       User? user = userCredential.user;
 
       await _firestore.collection('users').doc(user!.uid).set({
-        'email': email,
-        'role': role,
+        'name': userData["name"],
+        'userId': user.uid,
+        'role': userData["role"],
+        'email': userData["email"],
+        'phoneNumber': userData["phoneNumber"],
+        'idEmployee': userData["idEmployee"],
+        'statusAccount': "enable",
       });
+
+      return await getUserById(user.uid);
     } on FirebaseAuthException catch (e) {
-      print(e.message);
+      print(e);
+      throw new Exception(e.message);
+    }
+  }
+
+  Future<Map<String, dynamic>?> updateProfile(
+      Map<String, dynamic> userData) async {
+    try {
+      await _firestore.collection('users').doc(userData["userId"]).update({
+        'name': userData["name"],
+        'role': userData["role"],
+        'phoneNumber': userData["phoneNumber"],
+      });
+
+      return await getUserById(userData["userId"]);
+    } on FirebaseAuthException catch (e) {
+      print(e);
+      throw new Exception(e.message);
+    }
+  }
+
+  Future<bool> deleteAccount(Map<String, dynamic> userData) async {
+    try {
+      await _firestore.collection('users').doc(userData["userId"]).delete();
+      return true;
+    } on FirebaseAuthException catch (e) {
+      print(e);
+      throw new Exception(e.message);
     }
   }
 }

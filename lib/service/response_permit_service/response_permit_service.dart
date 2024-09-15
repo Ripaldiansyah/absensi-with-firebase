@@ -53,7 +53,7 @@ class ResponsePermitService {
         permits.add({
           'title': doc.data()['title'],
           'requestDate': doc.data()['requestDate'],
-          'startPermit': doc.data()['startLeave'],
+          'permitDate': doc.data()['permitDate'],
           'description': doc.data()['description'],
           'idResponse': doc.data()['idResponse'],
           'userIdEmployee': userId,

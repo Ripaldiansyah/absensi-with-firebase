@@ -24,8 +24,8 @@ mixin _$EmployeeFormRequestSickState {
   set endDate(DateTime? value) => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   set description(String? value) => throw _privateConstructorUsedError;
-  Image? get sickLetter => throw _privateConstructorUsedError;
-  set sickLetter(Image? value) => throw _privateConstructorUsedError;
+  String? get docUrl => throw _privateConstructorUsedError;
+  set docUrl(String? value) => throw _privateConstructorUsedError;
 
   /// Create a copy of EmployeeFormRequestSickState
   /// with the given fields replaced by the non-null parameter values.
@@ -47,7 +47,7 @@ abstract class $EmployeeFormRequestSickStateCopyWith<$Res> {
       DateTime? startDate,
       DateTime? endDate,
       String? description,
-      Image? sickLetter});
+      String? docUrl});
 }
 
 /// @nodoc
@@ -70,7 +70,7 @@ class _$EmployeeFormRequestSickStateCopyWithImpl<$Res,
     Object? startDate = freezed,
     Object? endDate = freezed,
     Object? description = freezed,
-    Object? sickLetter = freezed,
+    Object? docUrl = freezed,
   }) {
     return _then(_value.copyWith(
       title: freezed == title
@@ -89,10 +89,10 @@ class _$EmployeeFormRequestSickStateCopyWithImpl<$Res,
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      sickLetter: freezed == sickLetter
-          ? _value.sickLetter
-          : sickLetter // ignore: cast_nullable_to_non_nullable
-              as Image?,
+      docUrl: freezed == docUrl
+          ? _value.docUrl
+          : docUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -111,7 +111,7 @@ abstract class _$$EmployeeFormRequestSickStateImplCopyWith<$Res>
       DateTime? startDate,
       DateTime? endDate,
       String? description,
-      Image? sickLetter});
+      String? docUrl});
 }
 
 /// @nodoc
@@ -133,7 +133,7 @@ class __$$EmployeeFormRequestSickStateImplCopyWithImpl<$Res>
     Object? startDate = freezed,
     Object? endDate = freezed,
     Object? description = freezed,
-    Object? sickLetter = freezed,
+    Object? docUrl = freezed,
   }) {
     return _then(_$EmployeeFormRequestSickStateImpl(
       title: freezed == title
@@ -152,10 +152,10 @@ class __$$EmployeeFormRequestSickStateImplCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      sickLetter: freezed == sickLetter
-          ? _value.sickLetter
-          : sickLetter // ignore: cast_nullable_to_non_nullable
-              as Image?,
+      docUrl: freezed == docUrl
+          ? _value.docUrl
+          : docUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -169,7 +169,7 @@ class _$EmployeeFormRequestSickStateImpl
       this.startDate = null,
       this.endDate = null,
       this.description = null,
-      this.sickLetter = null});
+      this.docUrl = null});
 
   @override
   @JsonKey()
@@ -185,11 +185,11 @@ class _$EmployeeFormRequestSickStateImpl
   String? description;
   @override
   @JsonKey()
-  Image? sickLetter;
+  String? docUrl;
 
   @override
   String toString() {
-    return 'EmployeeFormRequestSickState(title: $title, startDate: $startDate, endDate: $endDate, description: $description, sickLetter: $sickLetter)';
+    return 'EmployeeFormRequestSickState(title: $title, startDate: $startDate, endDate: $endDate, description: $description, docUrl: $docUrl)';
   }
 
   /// Create a copy of EmployeeFormRequestSickState
@@ -210,7 +210,7 @@ abstract class _EmployeeFormRequestSickState
       DateTime? startDate,
       DateTime? endDate,
       String? description,
-      Image? sickLetter}) = _$EmployeeFormRequestSickStateImpl;
+      String? docUrl}) = _$EmployeeFormRequestSickStateImpl;
 
   @override
   String? get title;
@@ -225,8 +225,8 @@ abstract class _EmployeeFormRequestSickState
   String? get description;
   set description(String? value);
   @override
-  Image? get sickLetter;
-  set sickLetter(Image? value);
+  String? get docUrl;
+  set docUrl(String? value);
 
   /// Create a copy of EmployeeFormRequestSickState
   /// with the given fields replaced by the non-null parameter values.

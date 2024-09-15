@@ -77,57 +77,69 @@ class _EmployeeFormRequestSickViewState
         child: Column(
           children: [
             Expanded(
-              child: Container(
-                child: Form(
-                  key: formKey,
-                  child: Column(
-                    children: [
-                      QTextField(
-                        label: "Jenis Penyakit",
-                        validator: Validator.required,
-                        value: isNull ? "" : "${widget.sick?["title"]}",
-                        onChanged: (value) {
-                          state.title = value;
-                        },
+              child: SingleChildScrollView(
+                controller: ScrollController(),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      child: Form(
+                        key: formKey,
+                        child: Column(
+                          children: [
+                            QTextField(
+                              label: "Jenis Penyakit",
+                              validator: Validator.required,
+                              value: isNull ? "" : "${widget.sick?["title"]}",
+                              onChanged: (value) {
+                                state.title = value;
+                              },
+                            ),
+                            QDatePicker(
+                              label: "Mulai sakit",
+                              validator: Validator.required,
+                              value: (widget.sick?["startDate"] as Timestamp?)
+                                  ?.toDate(),
+                              onChanged: (value) {
+                                state.startDate = value;
+                              },
+                            ),
+                            QDatePicker(
+                              label: "Perkiraan sembuh",
+                              validator: Validator.required,
+                              value: (widget.sick?["endDate"] as Timestamp?)
+                                  ?.toDate(),
+                              onChanged: (value) {
+                                state.endDate = value;
+                              },
+                            ),
+                            QImagePicker(
+                              label: "Surat Sakit",
+                              validator: Validator.required,
+                              value: null,
+                              onChanged: (value) {
+                                state.docUrl = value;
+                              },
+                            ),
+                            QTextField(
+                              label: "Deskripsi Sakit",
+                              value: isNull
+                                  ? ""
+                                  : "${widget.sick?["description"]}",
+                              maxLength: 150,
+                              maxLines: 4,
+                              horizontal: 30,
+                              vertical: 20,
+                              helper: "optional",
+                              onChanged: (value) {
+                                state.description = value;
+                              },
+                            ),
+                          ],
+                        ),
                       ),
-                      QDatePicker(
-                        label: "Mulai sakit",
-                        validator: Validator.required,
-                        value:
-                            (widget.sick?["startDate"] as Timestamp?)?.toDate(),
-                        onChanged: (value) {
-                          state.startDate = value;
-                        },
-                      ),
-                      QDatePicker(
-                        label: "Perkiraan sembuh",
-                        validator: Validator.required,
-                        value:
-                            (widget.sick?["endDate"] as Timestamp?)?.toDate(),
-                        onChanged: (value) {
-                          state.endDate = value;
-                        },
-                      ),
-                      QImagePicker(
-                        label: "Surat Sakit",
-                        validator: Validator.required,
-                        value: null,
-                        onChanged: (value) {},
-                      ),
-                      QTextField(
-                        label: "Deskripsi Sakit",
-                        value: isNull ? "" : "${widget.sick?["description"]}",
-                        maxLength: 150,
-                        maxLines: 4,
-                        horizontal: 30,
-                        vertical: 20,
-                        helper: "optional",
-                        onChanged: (value) {
-                          state.description = value;
-                        },
-                      ),
-                    ],
-                  ),
+                    )
+                  ],
                 ),
               ),
             ),

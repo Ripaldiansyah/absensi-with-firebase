@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 import '../../core.dart';
 
@@ -12,10 +11,28 @@ class UsersService {
 
       for (DocumentSnapshot userDoc in userDocs.docs) {
         Map<String, dynamic> userData = userDoc.data() as Map<String, dynamic>;
+
         userData["userId"] = userDoc.id;
         users.add(userData);
       }
       return users;
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
+  Future searchUser(String text) async {
+    try {
+      final users = await UsersService().getAllUsers();
+      List<Map<String, dynamic>> userList = [];
+      for (var user in users) {
+        if (user["name"].toString().contains(text) ||
+            user["idEmployee"].toString().contains(text)) {
+          userList.add(user);
+        }
+      }
+
+      return userList;
     } catch (e) {
       throw Exception(e);
     }

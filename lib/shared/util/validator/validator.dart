@@ -29,6 +29,29 @@ class Validator {
     return null;
   }
 
+  static String? password(
+    dynamic value, {
+    String? fieldName,
+  }) {
+    if (value == null) {
+      return 'This field is required';
+    }
+
+    if (value.length < 6) {
+      return 'Password kurang dari 6 karakter';
+    }
+
+    if (value is String || value == null) {
+      if (value.toString() == 'null') return 'This field is required';
+      if (value.isEmpty) return 'This field is required';
+    }
+
+    if (value is List) {
+      if (value.isEmpty) return 'This field is required';
+    }
+    return null;
+  }
+
   static String? email(String? value) {
     if (value!.isEmpty) return 'This field is required';
 

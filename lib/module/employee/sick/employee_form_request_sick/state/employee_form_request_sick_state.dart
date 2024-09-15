@@ -9,6 +9,6 @@ class EmployeeFormRequestSickState with _$EmployeeFormRequestSickState {
     @Default(null) DateTime? startDate,
     @Default(null) DateTime? endDate,
     @Default(null) String? description,
-    @Default(null) Image? sickLetter,
+    @Default(null) String? docUrl,
   }) = _EmployeeFormRequestSickState;
 }

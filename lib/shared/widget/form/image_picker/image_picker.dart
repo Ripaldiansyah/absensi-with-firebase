@@ -6,7 +6,7 @@ import 'package:hyper_ui/core.dart';
 
 const String _CLOUDINARY_CLOUD_NAME = 'dnekabv3j';
 const String _CLOUDINARY_API_KEY = '162433119152468';
-const String _CLOUDINARY_UPLOAD_PRESET = 'r1p4l';
+const String _CLOUDINARY_UPLOAD_PRESET = 'bazwckbl';
 
 class QImagePicker extends StatefulWidget {
   const QImagePicker({

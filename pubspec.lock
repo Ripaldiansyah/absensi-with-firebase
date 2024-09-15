@@ -797,6 +797,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.2"
+  hash:
+    dependency: "direct main"
+    description:
+      name: hash
+      sha256: f3af74537f74a050075baa027596bd6925d75573ce6c8073fa67e3920c1f0f68
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.4"
   html:
     dependency: transitive
     description:
@@ -1093,6 +1101,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.5"
+  min_id:
+    dependency: "direct main"
+    description:
+      name: min_id
+      sha256: "52f451db780cd2164ef017fc13fc9466c36560b7b547d001ccab5f4788d2a739"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.0"
   nested:
     dependency: transitive
     description:
@@ -1277,6 +1293,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.5.1"
+  pretty_qr_code:
+    dependency: "direct main"
+    description:
+      name: pretty_qr_code
+      sha256: cbdb4af29da1c1fa21dd76f809646c591320ab9e435d3b0eab867492d43607d5
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.3.0"
   proj4dart:
     dependency: transitive
     description:
@@ -1317,6 +1341,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.2"
+  qr_code_scanner:
+    dependency: "direct main"
+    description:
+      name: qr_code_scanner
+      sha256: f23b68d893505a424f0bd2e324ebea71ed88465d572d26bb8d2e78a4749591fd
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.1"
   qr_flutter:
     dependency: "direct main"
     description:

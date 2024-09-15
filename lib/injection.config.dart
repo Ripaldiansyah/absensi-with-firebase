@@ -18,18 +18,30 @@ import 'module/admin/leave/admin_leaves_detail/controller/admin_leaves_detail_co
     as _i1001;
 import 'module/admin/leave/admin_leaves_list_by_user/controller/admin_leaves_list_by_user_controller.dart'
     as _i137;
-import 'module/admin/permit/admin_form_response_permit/controller/admin_form_response_permit_controller.dart'
-    as _i361;
-import 'module/admin/permit/admin_response_permit/controller/admin_response_permit_controller.dart'
-    as _i142;
-import 'module/admin/permit/admin_response_permit_detail/controller/admin_response_permit_detail_controller.dart'
-    as _i848;
-import 'module/admin/sick/admin_form_response_sick/controller/admin_form_response_sick_controller.dart'
-    as _i449;
-import 'module/admin/sick/admin_response_sick/controller/admin_response_sick_controller.dart'
-    as _i601;
-import 'module/admin/sick/admin_response_sick_detail/controller/admin_response_sick_detail_controller.dart'
-    as _i36;
+import 'module/admin/permit/admin_permit_approval/controller/admin_permit_approval_controller.dart'
+    as _i426;
+import 'module/admin/permit/admin_permit_detail/controller/admin_permit_detail_controller.dart'
+    as _i1039;
+import 'module/admin/permit/admin_permit_list_by_user/controller/admin_permit_list_by_user_controller.dart'
+    as _i161;
+import 'module/admin/qr/admin_list_user_qr/controller/admin_list_user_qr_controller.dart'
+    as _i336;
+import 'module/admin/qr/admin_qr_generator/controller/admin_qr_generator_controller.dart'
+    as _i456;
+import 'module/admin/sick/admin_sick_approval/controller/admin_sick_approval_controller.dart'
+    as _i473;
+import 'module/admin/sick/admin_sick_detail/controller/admin_sick_detail_controller.dart'
+    as _i564;
+import 'module/admin/sick/admin_sick_list_by_user/controller/admin_sick_list_by_user_controller.dart'
+    as _i503;
+import 'module/admin/users/admin_detail_user/controller/admin_detail_user_controller.dart'
+    as _i229;
+import 'module/admin/users/admin_form_user/controller/admin_form_user_controller.dart'
+    as _i388;
+import 'module/admin/users/admin_list_user/controller/admin_list_user_controller.dart'
+    as _i930;
+import 'module/admin/users/success_register/controller/success_register_controller.dart'
+    as _i84;
 import 'module/auth/login/controller/login_controller.dart' as _i994;
 import 'module/dashboard/controller/dashboard_controller.dart' as _i157;
 import 'module/employee/employee_menu/controller/employee_menu_controller.dart'
@@ -58,6 +70,7 @@ import 'module/profile/profile_edit/controller/profile_edit_controller.dart'
     as _i216;
 import 'module/profile/profile_setting/controller/profile_setting_controller.dart'
     as _i63;
+import 'module/qr_camera/controller/qr_camera_controller.dart' as _i367;
 
 extension GetItInjectableX on _i174.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -70,53 +83,66 @@ extension GetItInjectableX on _i174.GetIt {
       environment,
       environmentFilter,
     );
-    gh.singleton<_i994.LoginController>(() => _i994.LoginController());
-    gh.singleton<_i63.ProfileSettingController>(
-        () => _i63.ProfileSettingController());
-    gh.singleton<_i216.ProfileEditController>(
-        () => _i216.ProfileEditController());
-    gh.singleton<_i157.DashboardController>(() => _i157.DashboardController());
-    gh.singleton<_i164.MainNavigationController>(
-        () => _i164.MainNavigationController());
-    gh.singleton<_i14.EmployeeMenuController>(
-        () => _i14.EmployeeMenuController());
     gh.singleton<_i549.AdminMenuController>(() => _i549.AdminMenuController());
-    gh.singleton<_i1062.EmployeeFormRequestLeaveController>(
-        () => _i1062.EmployeeFormRequestLeaveController());
-    gh.singleton<_i30.EmployeeRequestLeaveController>(
-        () => _i30.EmployeeRequestLeaveController());
-    gh.singleton<_i15.EmployeeRequestLeaveDetailController>(
-        () => _i15.EmployeeRequestLeaveDetailController());
     gh.singleton<_i255.AdminLeavesApprovalController>(
         () => _i255.AdminLeavesApprovalController());
     gh.singleton<_i1001.AdminLeavesDetailController>(
         () => _i1001.AdminLeavesDetailController());
     gh.singleton<_i137.AdminLeavesListByUserController>(
         () => _i137.AdminLeavesListByUserController());
+    gh.singleton<_i426.AdminPermitApprovalController>(
+        () => _i426.AdminPermitApprovalController());
+    gh.singleton<_i1039.AdminPermitDetailController>(
+        () => _i1039.AdminPermitDetailController());
+    gh.singleton<_i161.AdminPermitListByUserController>(
+        () => _i161.AdminPermitListByUserController());
+    gh.singleton<_i336.AdminListUserQrController>(
+        () => _i336.AdminListUserQrController());
+    gh.singleton<_i456.AdminQrGeneratorController>(
+        () => _i456.AdminQrGeneratorController());
+    gh.singleton<_i473.AdminSickApprovalController>(
+        () => _i473.AdminSickApprovalController());
+    gh.singleton<_i564.AdminSickDetailController>(
+        () => _i564.AdminSickDetailController());
+    gh.singleton<_i503.AdminSickListByUserController>(
+        () => _i503.AdminSickListByUserController());
+    gh.singleton<_i229.AdminDetailUserController>(
+        () => _i229.AdminDetailUserController());
+    gh.singleton<_i388.AdminFormUserController>(
+        () => _i388.AdminFormUserController());
+    gh.singleton<_i930.AdminListUserController>(
+        () => _i930.AdminListUserController());
+    gh.singleton<_i84.SuccessRegisterController>(
+        () => _i84.SuccessRegisterController());
+    gh.singleton<_i994.LoginController>(() => _i994.LoginController());
+    gh.singleton<_i157.DashboardController>(() => _i157.DashboardController());
+    gh.singleton<_i14.EmployeeMenuController>(
+        () => _i14.EmployeeMenuController());
+    gh.singleton<_i1062.EmployeeFormRequestLeaveController>(
+        () => _i1062.EmployeeFormRequestLeaveController());
+    gh.singleton<_i30.EmployeeRequestLeaveController>(
+        () => _i30.EmployeeRequestLeaveController());
+    gh.singleton<_i15.EmployeeRequestLeaveDetailController>(
+        () => _i15.EmployeeRequestLeaveDetailController());
+    gh.singleton<_i990.EmployeeFormRequestPermitController>(
+        () => _i990.EmployeeFormRequestPermitController());
     gh.singleton<_i493.EmployeeRequestPermitController>(
         () => _i493.EmployeeRequestPermitController());
     gh.singleton<_i823.EmployeeRequestPermitDetailController>(
         () => _i823.EmployeeRequestPermitDetailController());
-    gh.singleton<_i990.EmployeeFormRequestPermitController>(
-        () => _i990.EmployeeFormRequestPermitController());
+    gh.singleton<_i167.EmployeeFormRequestSickController>(
+        () => _i167.EmployeeFormRequestSickController());
     gh.singleton<_i751.EmployeeRequestSickController>(
         () => _i751.EmployeeRequestSickController());
     gh.singleton<_i955.EmployeeRequestSickDetailController>(
         () => _i955.EmployeeRequestSickDetailController());
-    gh.singleton<_i167.EmployeeFormRequestSickController>(
-        () => _i167.EmployeeFormRequestSickController());
-    gh.singleton<_i142.AdminResponsePermitController>(
-        () => _i142.AdminResponsePermitController());
-    gh.singleton<_i361.AdminFormResponsePermitController>(
-        () => _i361.AdminFormResponsePermitController());
-    gh.singleton<_i848.AdminResponsePermitDetailController>(
-        () => _i848.AdminResponsePermitDetailController());
-    gh.singleton<_i601.AdminResponseSickController>(
-        () => _i601.AdminResponseSickController());
-    gh.singleton<_i36.AdminResponseSickDetailController>(
-        () => _i36.AdminResponseSickDetailController());
-    gh.singleton<_i449.AdminFormResponseSickController>(
-        () => _i449.AdminFormResponseSickController());
+    gh.singleton<_i164.MainNavigationController>(
+        () => _i164.MainNavigationController());
+    gh.singleton<_i216.ProfileEditController>(
+        () => _i216.ProfileEditController());
+    gh.singleton<_i63.ProfileSettingController>(
+        () => _i63.ProfileSettingController());
+    gh.singleton<_i367.QrCameraController>(() => _i367.QrCameraController());
     return this;
   }
 }

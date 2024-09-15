@@ -71,22 +71,30 @@ class _AdminMenuViewState extends State<AdminMenuView> {
           {
             "icon": Icons.assignment_turned_in_sharp,
             "label": "Izin",
-            "onTap": () {},
+            "onTap": () {
+              Get.to(AdminPermitApprovalView());
+            },
           },
           {
             "icon": Icons.medical_services_sharp,
             "label": "Sakit",
-            "onTap": () {},
+            "onTap": () {
+              Get.to(AdminSickApprovalView());
+            },
           },
           {
             "icon": Icons.groups_sharp,
             "label": "Karyawan",
-            "onTap": () {},
+            "onTap": () {
+              Get.to(AdminListUserView());
+            },
           },
           {
             "icon": Icons.qr_code,
             "label": "QR Absen",
-            "onTap": () {},
+            "onTap": () {
+              Get.to(AdminListUserQrView());
+            },
           },
           {
             "icon": Icons.how_to_reg_sharp,

@@ -57,7 +57,7 @@ class _AdminLeavesApprovalViewState extends State<AdminLeavesApprovalView> {
     state.users == null ? controller.getRequestLeaves() : state.users;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Admin Request Leave'),
+        title: const Text('Daftar Cuti Pengguna'),
       ),
       body: Padding(
         padding: EdgeInsets.all(8.0),

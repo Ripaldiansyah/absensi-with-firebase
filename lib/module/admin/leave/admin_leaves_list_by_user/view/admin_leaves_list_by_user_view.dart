@@ -66,7 +66,7 @@ class _AdminLeavesListByUserViewState extends State<AdminLeavesListByUserView> {
   ) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Admin Leaves List By User'),
+        title: const Text('Daftar Cuti Pengguna'),
       ),
       body: Padding(
         padding: EdgeInsets.all(8.0),
