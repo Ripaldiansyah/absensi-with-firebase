@@ -75,14 +75,21 @@ class _QRViewExampleState extends State<QRViewExample> {
         controller.stopCamera();
         DashboardController dashboardController = DashboardController();
         String? qrCode = result?.code;
-
         if (qrCode != null) {
           String cleanedCode = qrCode.replaceAll(RegExp(r'[{}]'), '');
           List<String> parts = cleanedCode.split(', ');
 
-          String idEmployee = parts.length > 0 ? parts[0].split(': ')[1] : '';
-          String secretKey = parts.length > 1 ? parts[1].split(': ')[1] : '';
-          String userId = parts.length > 2 ? parts[2].split(': ')[1] : '';
+          Map<String, String> parsedData = {};
+
+          for (var part in parts) {
+            var keyValue = part.split(': ');
+            if (keyValue.length == 2) {
+              parsedData[keyValue[0].trim()] = keyValue[1].trim();
+            }
+          }
+          String userId = parsedData['userId'] ?? '';
+          String idEmployee = parsedData['idEmployee'] ?? '';
+          String secretKey = parsedData['secretKey'] ?? '';
 
           if (widget.isUpdate) {
             await dashboardController.insertCheckOut({

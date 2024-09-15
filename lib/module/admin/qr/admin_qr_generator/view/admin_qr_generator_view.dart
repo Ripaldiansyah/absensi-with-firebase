@@ -97,7 +97,6 @@ class _AdminQrGeneratorViewState extends State<AdminQrGeneratorView> {
                     FutureBuilder<dynamic>(
                       future: controller.qrData(widget.userDetail),
                       builder: (context, snapshot) {
-                        // print(snapshot);
                         if (snapshot.connectionState ==
                             ConnectionState.waiting) {
                           return Center(child: CircularProgressIndicator());

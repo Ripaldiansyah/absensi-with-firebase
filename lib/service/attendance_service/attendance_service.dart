@@ -46,11 +46,9 @@ class AttendanceService {
           return false;
         }
         if (attendanceData["idEmployee"] != qrData["idEmployee"]) {
-          print(attendanceData["idEmployee"] != qrData["idEmployee"]);
           return false;
         }
         if (attendanceData["secretKey"] != qrData["secretKey"]) {
-          print(attendanceData["secretKey"] != qrData["secretKey"]);
           return false;
         }
         return true;
