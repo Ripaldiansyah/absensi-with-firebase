@@ -93,7 +93,7 @@ class AttendanceService {
           .doc(dateMonthYear);
 
       await checkOut(reference, qrData);
-
+      await QrService().updateDataQr(qrData);
       DocumentSnapshot snapshot = await reference.get();
       return snapshot.data() as Map<String, dynamic>?;
     } catch (e) {
