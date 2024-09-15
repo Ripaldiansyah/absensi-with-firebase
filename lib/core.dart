@@ -145,7 +145,6 @@ export 'package:hyper_ui/shared/util/type_extension/time_extension.dart';
 export 'package:hyper_ui/shared/util/url_launcher/url_launcher.dart';
 export 'package:hyper_ui/shared/util/uuid/uuid4.dart';
 export 'package:hyper_ui/shared/util/validator/validator.dart';
-export 'package:hyper_ui/shared/widget/attendance/attendance.dart';
 export 'package:hyper_ui/shared/widget/card/card.dart';
 export 'package:hyper_ui/shared/widget/card/card_panel.dart';
 export 'package:hyper_ui/shared/widget/carousel/carousel.dart';

@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hyper_ui/core.dart';
-import 'package:hyper_ui/shared/widget/attendance/attendance.dart';
 import '../controller/dashboard_controller.dart';
 import '../state/dashboard_state.dart';
 import 'package:get_it/get_it.dart';
@@ -10,7 +9,6 @@ import 'package:get_it/get_it.dart';
 class DashboardView extends StatefulWidget {
   const DashboardView({super.key});
 
-  @override
   State<DashboardView> createState() => _DashboardViewState();
 }
 
@@ -18,7 +16,6 @@ class _DashboardViewState extends State<DashboardView> {
   DashboardController controller = DashboardController();
   String today = DateFormat('EEEE,\ndd MMMM yyyy').format(DateTime.now());
 
-  @override
   void initState() {
     if (GetIt.I.isRegistered<DashboardController>()) {
       GetIt.I.unregister<DashboardController>();
@@ -31,13 +28,11 @@ class _DashboardViewState extends State<DashboardView> {
     super.initState();
   }
 
-  @override
   void dispose() {
     controller.dispose();
     super.dispose();
   }
 
-  @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (BuildContext context) => controller,
@@ -123,31 +118,29 @@ class _DashboardViewState extends State<DashboardView> {
                                     ),
                                   ],
                                 ),
-                                child: Expanded(
-                                  child: Padding(
-                                    padding: EdgeInsets.all(4.0),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          DBService.get("name")!,
-                                          style: TextStyle(
-                                            fontSize: 18.0,
-                                            color: primaryColor,
-                                            fontWeight: FontWeight.w600,
-                                          ),
+                                child: Padding(
+                                  padding: EdgeInsets.all(4.0),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        DBService.get("name")!,
+                                        style: TextStyle(
+                                          fontSize: 18.0,
+                                          color: primaryColor,
+                                          fontWeight: FontWeight.w600,
                                         ),
-                                        Text(
-                                          DBService.get("role")!,
-                                          style: TextStyle(
-                                            fontSize: 10.0,
-                                            color: primaryColor,
-                                            fontWeight: FontWeight.w300,
-                                          ),
+                                      ),
+                                      Text(
+                                        DBService.get("role")!,
+                                        style: TextStyle(
+                                          fontSize: 10.0,
+                                          color: primaryColor,
+                                          fontWeight: FontWeight.w300,
                                         ),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ),
@@ -185,8 +178,8 @@ class _DashboardViewState extends State<DashboardView> {
                                   ),
                                 ),
                               ),
-                              Expanded(
-                                child: Container(
+                              Container(
+                                child: Expanded(
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,

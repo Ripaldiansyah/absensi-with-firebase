@@ -15,12 +15,12 @@ class AttendanceService {
       DocumentSnapshot snapshot = await attendanceData.get();
 
       if (!snapshot.exists) {
-        Map<String, dynamic> attendance = {
-          "checkIn": "00:00",
-          "checkOut": "00:00",
-        };
+        await attendanceData.set({
+          "checkIn": null,
+          "checkOut": null,
+        });
 
-        return attendance;
+        return attendanceData as Map<String, dynamic>;
       } else {
         Map<String, dynamic> attendance = {
           "checkIn": snapshot.get("checkIn"),
