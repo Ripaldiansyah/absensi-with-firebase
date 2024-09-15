@@ -4,6 +4,6 @@ part 'dashboard_state.freezed.dart';
 @unfreezed
 class DashboardState with _$DashboardState {
   factory DashboardState({
-    @Default(0) int counter,
+    @Default(null) Map<String, dynamic>? attendance,
   }) = _DashboardState;
 }

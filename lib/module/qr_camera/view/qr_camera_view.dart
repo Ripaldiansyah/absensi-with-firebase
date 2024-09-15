@@ -8,7 +8,11 @@ import 'package:hyper_ui/shared/widget/confirmation/confirmation2.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 class QRViewExample extends StatefulWidget {
-  const QRViewExample({Key? key}) : super(key: key);
+  bool isUpdate;
+  QRViewExample({
+    Key? key,
+    required this.isUpdate,
+  }) : super(key: key);
 
   @override
   State<StatefulWidget> createState() => _QRViewExampleState();
@@ -62,40 +66,41 @@ class _QRViewExampleState extends State<QRViewExample> {
     setState(() {
       this.controller = controller;
     });
-    controller.scannedDataStream.listen((scanData) {
+    controller.scannedDataStream.listen((scanData) async {
       setState(() {
         result = scanData;
       });
-      // Navigate after state is updated
       if (result != null) {
-        // Use WidgetsBinding to ensure the navigation happens after the build is complete
+        showLoading();
         controller.stopCamera();
-        Get.back();
-        showDialog(
-          context: context,
-          builder: (context) => AlertDialog(
-            title: Text('QR Code Scanned'),
-            content: Text('Data: ${result!.code}'),
-            actions: [
-              TextButton(
-                child: Text('OK'),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                        builder: (context) => MainNavigationView()),
-                  );
-                },
-              ),
-            ],
-          ),
-        );
+        DashboardController dashboardController = DashboardController();
+        String? qrCode = result?.code;
 
-        // WidgetsBinding.instance.addPostFrameCallback((_) {
-        //   Navigator.of(context).push(
-        //     MaterialPageRoute(builder: (context) => MainNavigationView()),
-        //   );
-        // });
+        if (qrCode != null) {
+          String cleanedCode = qrCode.replaceAll(RegExp(r'[{}]'), '');
+          List<String> parts = cleanedCode.split(', ');
+
+          String idEmployee = parts.length > 0 ? parts[0].split(': ')[1] : '';
+          String secretKey = parts.length > 1 ? parts[1].split(': ')[1] : '';
+          String userId = parts.length > 2 ? parts[2].split(': ')[1] : '';
+
+          if (widget.isUpdate) {
+            await dashboardController.insertCheckOut({
+              'userId': userId,
+              'idEmployee': idEmployee,
+              'secretKey': secretKey,
+            });
+          } else {
+            await dashboardController.insertCheckIn({
+              'userId': userId,
+              'idEmployee': idEmployee,
+              'secretKey': secretKey,
+            });
+          }
+
+          await hideLoading();
+          await Get.back();
+        }
       }
     });
   }

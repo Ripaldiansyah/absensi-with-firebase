@@ -111,8 +111,7 @@ class _AdminQrGeneratorViewState extends State<AdminQrGeneratorView> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               SizedBox(
-                                height:
-                                    MediaQuery.of(context).size.height / 1.8,
+                                height: MediaQuery.of(context).size.height / 3,
                                 child: PrettyQrView(
                                   qrImage: snapshot.data,
                                   decoration: PrettyQrDecoration(

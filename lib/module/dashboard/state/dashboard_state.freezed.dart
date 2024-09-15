@@ -16,8 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$DashboardState {
-  int get counter => throw _privateConstructorUsedError;
-  set counter(int value) => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get attendance => throw _privateConstructorUsedError;
+  set attendance(Map<String, dynamic>? value) =>
+      throw _privateConstructorUsedError;
 
   /// Create a copy of DashboardState
   /// with the given fields replaced by the non-null parameter values.
@@ -32,7 +33,7 @@ abstract class $DashboardStateCopyWith<$Res> {
           DashboardState value, $Res Function(DashboardState) then) =
       _$DashboardStateCopyWithImpl<$Res, DashboardState>;
   @useResult
-  $Res call({int counter});
+  $Res call({Map<String, dynamic>? attendance});
 }
 
 /// @nodoc
@@ -50,13 +51,13 @@ class _$DashboardStateCopyWithImpl<$Res, $Val extends DashboardState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? counter = null,
+    Object? attendance = freezed,
   }) {
     return _then(_value.copyWith(
-      counter: null == counter
-          ? _value.counter
-          : counter // ignore: cast_nullable_to_non_nullable
-              as int,
+      attendance: freezed == attendance
+          ? _value.attendance
+          : attendance // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -69,7 +70,7 @@ abstract class _$$DashboardStateImplCopyWith<$Res>
       __$$DashboardStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int counter});
+  $Res call({Map<String, dynamic>? attendance});
 }
 
 /// @nodoc
@@ -85,13 +86,13 @@ class __$$DashboardStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? counter = null,
+    Object? attendance = freezed,
   }) {
     return _then(_$DashboardStateImpl(
-      counter: null == counter
-          ? _value.counter
-          : counter // ignore: cast_nullable_to_non_nullable
-              as int,
+      attendance: freezed == attendance
+          ? _value.attendance
+          : attendance // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -99,15 +100,15 @@ class __$$DashboardStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DashboardStateImpl implements _DashboardState {
-  _$DashboardStateImpl({this.counter = 0});
+  _$DashboardStateImpl({this.attendance = null});
 
   @override
   @JsonKey()
-  int counter;
+  Map<String, dynamic>? attendance;
 
   @override
   String toString() {
-    return 'DashboardState(counter: $counter)';
+    return 'DashboardState(attendance: $attendance)';
   }
 
   /// Create a copy of DashboardState
@@ -121,11 +122,12 @@ class _$DashboardStateImpl implements _DashboardState {
 }
 
 abstract class _DashboardState implements DashboardState {
-  factory _DashboardState({int counter}) = _$DashboardStateImpl;
+  factory _DashboardState({Map<String, dynamic>? attendance}) =
+      _$DashboardStateImpl;
 
   @override
-  int get counter;
-  set counter(int value);
+  Map<String, dynamic>? get attendance;
+  set attendance(Map<String, dynamic>? value);
 
   /// Create a copy of DashboardState
   /// with the given fields replaced by the non-null parameter values.
