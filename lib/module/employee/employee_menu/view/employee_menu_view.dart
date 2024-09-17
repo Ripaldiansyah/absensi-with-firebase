@@ -85,6 +85,13 @@ class _EmployeeMenuViewState extends State<EmployeeMenuView> {
                 Get.to(EmployeeRequestSickView());
               },
             },
+            {
+              "icon": Icons.work_history_sharp,
+              "label": "Aktifitas",
+              "onTap": () {
+                Get.to(EmployeeActivityView());
+              },
+            },
           ];
 
           return GridView.builder(

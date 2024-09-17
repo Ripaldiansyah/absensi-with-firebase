@@ -2,6 +2,7 @@
     "modules": [
         "auth/login",
         "employee/employee_menu",
+        "employee/employee_activity",
         "employee/leave/employee_request_leave",
         "employee/leave/employee_request_leave_detail",
         "employee/leave/employee_form_request_leave",
@@ -21,6 +22,7 @@
         "admin/permit/admin_permit_approval",
         "admin/permit/admin_permit_list_by_user",
         "admin/permit/admin_permit_detail",
+        "admin/presence/admin_presence",
         "admin/users/admin_list_user",
         "admin/users/admin_form_user",
         "admin/users/admin_detail_user",

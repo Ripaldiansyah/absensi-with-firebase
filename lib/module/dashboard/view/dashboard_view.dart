@@ -64,6 +64,15 @@ class _DashboardViewState extends State<DashboardView> {
         ? "00:00"
         : DateFormat('HH:mm')
             .format((state.attendance?["checkOut"] as Timestamp).toDate());
+    Duration duration = state.attendance?["checkOut"] != null &&
+            state.attendance?["checkIn"] != null
+        ? (state.attendance?["checkOut"] as Timestamp)
+            .toDate()
+            .difference((state.attendance?["checkIn"] as Timestamp).toDate())
+        : Duration.zero;
+
+    String formattedDuration =
+        "${duration.inHours} Jam ${duration.inMinutes.remainder(60)} Menit ${duration.inSeconds.remainder(60)} Detik";
 
     return Scaffold(
       appBar: AppBar(
@@ -210,20 +219,59 @@ class _DashboardViewState extends State<DashboardView> {
                             height: 15.0,
                           ),
                           if (state.attendance?["checkOut"] == null)
-                            QButton(
-                              label:
-                                  "${state.attendance?["checkIn"] == null ? "Check in" : " Check Out"} ",
-                              onPressed: () {
-                                state.attendance?["checkIn"] == null
-                                    ? Get.to(QRViewExample(
-                                        isUpdate: false,
-                                      ))
-                                    : Get.to(QRViewExample(
-                                        isUpdate: true,
-                                      ));
-                              },
-                              color: Colors.white,
-                              textColor: primaryColor,
+                            Expanded(
+                              child: QButton(
+                                label:
+                                    "${state.attendance?["checkIn"] == null ? "Check in" : " Check Out"} ",
+                                onPressed: () {
+                                  state.attendance?["checkIn"] == null
+                                      ? Get.to(QRViewExample(
+                                          isUpdate: false,
+                                        ))
+                                      : Get.to(QRViewExample(
+                                          isUpdate: true,
+                                        ));
+                                },
+                                color: Colors.white,
+                                textColor: primaryColor,
+                                fontSize: 18.0,
+                              ),
+                            ),
+                          if (state.attendance?["checkOut"] != null)
+                            Expanded(
+                              child: Container(
+                                width: MediaQuery.of(context).size.width,
+                                decoration: const BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(12.0),
+                                  ),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Color(0x19000000),
+                                      blurRadius: 24,
+                                      offset: Offset(0, 11),
+                                    ),
+                                  ],
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Expanded(
+                                      child: Center(
+                                        child: Text(
+                                          "Durasi kerja : ${formattedDuration}",
+                                          overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                            fontSize: 18.0,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
                             ),
                         ],
                       ),

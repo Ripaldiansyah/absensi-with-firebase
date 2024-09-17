@@ -14,20 +14,18 @@ class AttendanceService {
           .doc(dateMonthYear);
       DocumentSnapshot snapshot = await attendanceData.get();
 
-      if (!snapshot.exists) {
-        await attendanceData.set({
-          "checkIn": null,
-          "checkOut": null,
-        });
-
-        return attendanceData as Map<String, dynamic>;
-      } else {
+      if (snapshot.exists) {
         Map<String, dynamic> attendance = {
           "checkIn": snapshot.get("checkIn"),
           "checkOut": snapshot.get("checkOut"),
         };
 
         return attendance;
+      } else {
+        return {
+          "checkIn": null,
+          "checkOut": null,
+        };
       }
     } catch (e) {
       throw Exception(e);

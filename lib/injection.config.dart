@@ -24,6 +24,8 @@ import 'module/admin/permit/admin_permit_detail/controller/admin_permit_detail_c
     as _i1039;
 import 'module/admin/permit/admin_permit_list_by_user/controller/admin_permit_list_by_user_controller.dart'
     as _i161;
+import 'module/admin/presence/admin_presence/controller/admin_presence_controller.dart'
+    as _i1046;
 import 'module/admin/qr/admin_list_user_qr/controller/admin_list_user_qr_controller.dart'
     as _i336;
 import 'module/admin/qr/admin_qr_generator/controller/admin_qr_generator_controller.dart'
@@ -44,6 +46,8 @@ import 'module/admin/users/success_register/controller/success_register_controll
     as _i84;
 import 'module/auth/login/controller/login_controller.dart' as _i994;
 import 'module/dashboard/controller/dashboard_controller.dart' as _i157;
+import 'module/employee/employee_activity/controller/employee_activity_controller.dart'
+    as _i935;
 import 'module/employee/employee_menu/controller/employee_menu_controller.dart'
     as _i14;
 import 'module/employee/leave/employee_form_request_leave/controller/employee_form_request_leave_controller.dart'
@@ -116,6 +120,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i84.SuccessRegisterController());
     gh.singleton<_i994.LoginController>(() => _i994.LoginController());
     gh.singleton<_i157.DashboardController>(() => _i157.DashboardController());
+    gh.singleton<_i935.EmployeeActivityController>(
+        () => _i935.EmployeeActivityController());
     gh.singleton<_i14.EmployeeMenuController>(
         () => _i14.EmployeeMenuController());
     gh.singleton<_i1062.EmployeeFormRequestLeaveController>(
@@ -143,6 +149,8 @@ extension GetItInjectableX on _i174.GetIt {
     gh.singleton<_i63.ProfileSettingController>(
         () => _i63.ProfileSettingController());
     gh.singleton<_i367.QrCameraController>(() => _i367.QrCameraController());
+    gh.singleton<_i1046.AdminPresenceController>(
+        () => _i1046.AdminPresenceController());
     return this;
   }
 }

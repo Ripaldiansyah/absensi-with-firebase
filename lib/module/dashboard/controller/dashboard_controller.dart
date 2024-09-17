@@ -33,7 +33,7 @@ class DashboardController extends Cubit<DashboardState> implements IBlocBase {
   getAttendance() async {
     try {
       final attendance = await AttendanceService().getAttendanceTodayByUser();
-      emit(state.copyWith(attendance: attendance));
+      emit(state.copyWith(attendance: await attendance));
       return attendance;
     } catch (e) {
       print(e);
