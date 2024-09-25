@@ -13,6 +13,7 @@
         "employee/sick/employee_request_sick_detail",
         "employee/sick/employee_form_request_sick",
         "admin/admin_menu",
+        "admin/report",
         "admin/leave/admin_leaves_approval",
         "admin/leave/admin_leaves_list_by_user",
         "admin/leave/admin_leaves_detail",

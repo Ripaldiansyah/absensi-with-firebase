@@ -99,7 +99,16 @@ class _AdminMenuViewState extends State<AdminMenuView> {
           {
             "icon": Icons.how_to_reg_sharp,
             "label": "Presensi",
-            "onTap": () {},
+            "onTap": () {
+              Get.to(AdminPresenceView());
+            },
+          },
+          {
+            "icon": Icons.description_sharp,
+            "label": "Laporan",
+            "onTap": () {
+              Get.to(ReportView());
+            },
           },
         ];
 

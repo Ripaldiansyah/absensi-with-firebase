@@ -44,6 +44,7 @@ class AuthService {
       if (userDoc.exists) {
         String role = userDoc.get('role') as String;
         String name = userDoc.get('name') as String;
+        String idEmployee = userDoc.get('idEmployee') as String;
         String phoneNumber = userDoc.get('phoneNumber') as String;
         String status = userDoc.get('statusAccount') as String;
         String? token = await user.getIdToken();
@@ -54,6 +55,7 @@ class AuthService {
         DBService.set("role", role);
         DBService.set("token", token);
         DBService.set("phoneNumber", phoneNumber);
+        DBService.set("idEmployee", idEmployee);
 
         bool isEnabled = status == "enable" ? true : false;
         return isEnabled;

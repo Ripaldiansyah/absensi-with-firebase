@@ -82,6 +82,16 @@ class _AdminFormUserViewState extends State<AdminFormUserView> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             QTextField(
+                              label: "NIK Karyawan",
+                              hint: "Masukan NIK Karyawan",
+                              validator: Validator.required,
+                              suffixIcon: null,
+                              value: widget.userData?["email"],
+                              onChanged: (value) {
+                                state.email = value;
+                              },
+                            ),
+                            QTextField(
                               label: "Email",
                               hint: "Masukan Email",
                               validator: Validator.email,

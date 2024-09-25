@@ -28,14 +28,13 @@ class AdminFormUserController extends Cubit<AdminFormUserState>
 
   register() async {
     try {
-      final id = MinId.getId('SMP{5{d}}-{3{d}}');
       Map<String, dynamic> userData = {
         "email": state.email,
         "password": state.password,
         "name": state.name,
         "role": state.role,
         "phoneNumber": state.phoneNumber,
-        "idEmployee": id,
+        "idEmployee": state.idEmployee,
       };
       showLoading();
       final registered = await AuthService().registerUser(userData);

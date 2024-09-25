@@ -12,8 +12,10 @@ class UsersService {
       for (DocumentSnapshot userDoc in userDocs.docs) {
         Map<String, dynamic> userData = userDoc.data() as Map<String, dynamic>;
 
-        userData["userId"] = userDoc.id;
-        users.add(userData);
+        if (userData["statusAccount"] == "enable") {
+          userData["userId"] = userDoc.id;
+          users.add(userData);
+        }
       }
       return users;
     } catch (e) {

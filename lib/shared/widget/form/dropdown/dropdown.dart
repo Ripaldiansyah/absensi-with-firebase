@@ -28,6 +28,7 @@ class QDropdownField extends StatefulWidget {
   final dynamic value;
   final bool emptyMode;
   final Function(dynamic value, String? label) onChanged;
+
   final EdgeInsetsGeometry? margin;
 
   @override

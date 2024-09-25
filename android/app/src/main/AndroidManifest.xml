@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
-        android:label="My Absen (UNPAM)"
+        android:label="Absensi (PT SM Pest) - Adinda Rev 1"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

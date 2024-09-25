@@ -30,6 +30,7 @@ import 'module/admin/qr/admin_list_user_qr/controller/admin_list_user_qr_control
     as _i336;
 import 'module/admin/qr/admin_qr_generator/controller/admin_qr_generator_controller.dart'
     as _i456;
+import 'module/admin/report/controller/report_controller.dart' as _i70;
 import 'module/admin/sick/admin_sick_approval/controller/admin_sick_approval_controller.dart'
     as _i473;
 import 'module/admin/sick/admin_sick_detail/controller/admin_sick_detail_controller.dart'
@@ -100,10 +101,13 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i1039.AdminPermitDetailController());
     gh.singleton<_i161.AdminPermitListByUserController>(
         () => _i161.AdminPermitListByUserController());
+    gh.singleton<_i1046.AdminPresenceController>(
+        () => _i1046.AdminPresenceController());
     gh.singleton<_i336.AdminListUserQrController>(
         () => _i336.AdminListUserQrController());
     gh.singleton<_i456.AdminQrGeneratorController>(
         () => _i456.AdminQrGeneratorController());
+    gh.singleton<_i70.ReportController>(() => _i70.ReportController());
     gh.singleton<_i473.AdminSickApprovalController>(
         () => _i473.AdminSickApprovalController());
     gh.singleton<_i564.AdminSickDetailController>(
@@ -149,8 +153,6 @@ extension GetItInjectableX on _i174.GetIt {
     gh.singleton<_i63.ProfileSettingController>(
         () => _i63.ProfileSettingController());
     gh.singleton<_i367.QrCameraController>(() => _i367.QrCameraController());
-    gh.singleton<_i1046.AdminPresenceController>(
-        () => _i1046.AdminPresenceController());
     return this;
   }
 }

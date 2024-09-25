@@ -98,6 +98,13 @@ class _ProfileSettingViewState extends State<ProfileSettingView> {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
+                            Text(
+                              DBService.get("idEmployee") ?? "id isn setting",
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                             SizedBox(
                               height: 20.0,
                             ),

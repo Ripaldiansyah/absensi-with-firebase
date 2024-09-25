@@ -39,6 +39,9 @@ export 'package:hyper_ui/module/admin/qr/admin_list_user_qr/view/admin_list_user
 export 'package:hyper_ui/module/admin/qr/admin_qr_generator/controller/admin_qr_generator_controller.dart';
 export 'package:hyper_ui/module/admin/qr/admin_qr_generator/state/admin_qr_generator_state.dart';
 export 'package:hyper_ui/module/admin/qr/admin_qr_generator/view/admin_qr_generator_view.dart';
+export 'package:hyper_ui/module/admin/report/controller/report_controller.dart';
+export 'package:hyper_ui/module/admin/report/state/report_state.dart';
+export 'package:hyper_ui/module/admin/report/view/report_view.dart';
 export 'package:hyper_ui/module/admin/sick/admin_sick_approval/controller/admin_sick_approval_controller.dart';
 export 'package:hyper_ui/module/admin/sick/admin_sick_approval/state/admin_sick_approval_state.dart';
 export 'package:hyper_ui/module/admin/sick/admin_sick_approval/view/admin_sick_approval_view.dart';

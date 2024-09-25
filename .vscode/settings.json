@@ -1,19 +1,18 @@
 {
   "[dart]": {
-      "editor.formatOnSave": true,
-      "editor.codeActionsOnSave": {
-        "source.fixAll": "explicit"
-      },
-      "editor.formatOnType": true,
-      "editor.rulers": [
-          80
-      ],
-      "editor.selectionHighlight": false,
-      "editor.suggest.snippetsPreventQuickSuggestions": false,
-      "editor.suggestSelection": "first",
-      "editor.tabCompletion": "onlySnippets",
-      "editor.wordBasedSuggestions": "off",
-      "editor.defaultFormatter": "Dart-Code.dart-code"
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit"
+    },
+    "editor.formatOnType": true,
+    "editor.rulers": [80],
+    "editor.selectionHighlight": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": "off",
+    "editor.defaultFormatter": "Dart-Code.dart-code"
   },
-  "java.configuration.updateBuildConfiguration": "interactive",
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "git.ignoreLimitWarning": true
 }

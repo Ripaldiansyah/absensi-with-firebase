@@ -11,6 +11,7 @@
 migrate_working_dir/
 .vscode/udf.code-snippets
 temp.png
+firebase.json
 
 # IntelliJ related
 *.iml

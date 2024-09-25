@@ -16,8 +16,12 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AdminPresenceState {
-  int get counter => throw _privateConstructorUsedError;
-  set counter(int value) => throw _privateConstructorUsedError;
+  List<dynamic>? get userPresence => throw _privateConstructorUsedError;
+  set userPresence(List<dynamic>? value) => throw _privateConstructorUsedError;
+  List<Map<String, dynamic>>? get dateMonthYear =>
+      throw _privateConstructorUsedError;
+  set dateMonthYear(List<Map<String, dynamic>>? value) =>
+      throw _privateConstructorUsedError;
 
   /// Create a copy of AdminPresenceState
   /// with the given fields replaced by the non-null parameter values.
@@ -32,7 +36,8 @@ abstract class $AdminPresenceStateCopyWith<$Res> {
           AdminPresenceState value, $Res Function(AdminPresenceState) then) =
       _$AdminPresenceStateCopyWithImpl<$Res, AdminPresenceState>;
   @useResult
-  $Res call({int counter});
+  $Res call(
+      {List<dynamic>? userPresence, List<Map<String, dynamic>>? dateMonthYear});
 }
 
 /// @nodoc
@@ -50,13 +55,18 @@ class _$AdminPresenceStateCopyWithImpl<$Res, $Val extends AdminPresenceState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? counter = null,
+    Object? userPresence = freezed,
+    Object? dateMonthYear = freezed,
   }) {
     return _then(_value.copyWith(
-      counter: null == counter
-          ? _value.counter
-          : counter // ignore: cast_nullable_to_non_nullable
-              as int,
+      userPresence: freezed == userPresence
+          ? _value.userPresence
+          : userPresence // ignore: cast_nullable_to_non_nullable
+              as List<dynamic>?,
+      dateMonthYear: freezed == dateMonthYear
+          ? _value.dateMonthYear
+          : dateMonthYear // ignore: cast_nullable_to_non_nullable
+              as List<Map<String, dynamic>>?,
     ) as $Val);
   }
 }
@@ -69,7 +79,8 @@ abstract class _$$AdminPresenceStateImplCopyWith<$Res>
       __$$AdminPresenceStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int counter});
+  $Res call(
+      {List<dynamic>? userPresence, List<Map<String, dynamic>>? dateMonthYear});
 }
 
 /// @nodoc
@@ -85,13 +96,18 @@ class __$$AdminPresenceStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? counter = null,
+    Object? userPresence = freezed,
+    Object? dateMonthYear = freezed,
   }) {
     return _then(_$AdminPresenceStateImpl(
-      counter: null == counter
-          ? _value.counter
-          : counter // ignore: cast_nullable_to_non_nullable
-              as int,
+      userPresence: freezed == userPresence
+          ? _value.userPresence
+          : userPresence // ignore: cast_nullable_to_non_nullable
+              as List<dynamic>?,
+      dateMonthYear: freezed == dateMonthYear
+          ? _value.dateMonthYear
+          : dateMonthYear // ignore: cast_nullable_to_non_nullable
+              as List<Map<String, dynamic>>?,
     ));
   }
 }
@@ -99,15 +115,19 @@ class __$$AdminPresenceStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AdminPresenceStateImpl implements _AdminPresenceState {
-  _$AdminPresenceStateImpl({this.counter = 0});
+  _$AdminPresenceStateImpl(
+      {this.userPresence = null, this.dateMonthYear = null});
 
   @override
   @JsonKey()
-  int counter;
+  List<dynamic>? userPresence;
+  @override
+  @JsonKey()
+  List<Map<String, dynamic>>? dateMonthYear;
 
   @override
   String toString() {
-    return 'AdminPresenceState(counter: $counter)';
+    return 'AdminPresenceState(userPresence: $userPresence, dateMonthYear: $dateMonthYear)';
   }
 
   /// Create a copy of AdminPresenceState
@@ -121,11 +141,16 @@ class _$AdminPresenceStateImpl implements _AdminPresenceState {
 }
 
 abstract class _AdminPresenceState implements AdminPresenceState {
-  factory _AdminPresenceState({int counter}) = _$AdminPresenceStateImpl;
+  factory _AdminPresenceState(
+      {List<dynamic>? userPresence,
+      List<Map<String, dynamic>>? dateMonthYear}) = _$AdminPresenceStateImpl;
 
   @override
-  int get counter;
-  set counter(int value);
+  List<dynamic>? get userPresence;
+  set userPresence(List<dynamic>? value);
+  @override
+  List<Map<String, dynamic>>? get dateMonthYear;
+  set dateMonthYear(List<Map<String, dynamic>>? value);
 
   /// Create a copy of AdminPresenceState
   /// with the given fields replaced by the non-null parameter values.
